@@ -1,0 +1,133 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface NavLink {
+  href: string;
+  label: string;
+  mobileLabel?: string;
+}
+
+const navLinks: NavLink[] = [
+  { href: '#hero', label: 'Inicio' },
+  { href: '#portfolio', label: 'Portafolio' },
+  { href: '#services', label: 'Servicios' },
+  { href: '#about', label: 'Sobre Mí' },
+  { href: '#galeria', label: 'Galería' },
+  { href: '#process', label: 'Proceso', mobileLabel: 'Proceso de Trabajo' },
+];
+---
+
+<header
+  id='navbar'
+  class='fixed inset-x-0 top-0 z-50 border-b border-transparent bg-transparent py-5 transition-all duration-300'
+>
+  <div class='mx-auto flex max-w-7xl items-center justify-between px-5 sm:px-8'>
+    <a href='#hero' class='group flex flex-col focus:outline-none'>
+      <div class='flex items-center gap-2'>
+        <img
+          src='/images/logo.webp'
+          alt='Gustav Studios logo'
+          class='h-10 w-auto object-contain transition-transform duration-200 group-hover:scale-105'
+        />
+        <span
+          class='font-heading text-xl font-extrabold tracking-tight text-white transition-colors group-hover:text-brand-orange'
+        >
+          GUSTAV <span class='text-brand-red'>STUDIOS</span>
+        </span>
+      </div>
+      <span
+        class='-mt-1 hidden pl-10 font-mono text-[10px] uppercase tracking-widest text-neutral-400 sm:block'
+      >
+        Producción &amp; Edición de Videos
+      </span>
+    </a>
+
+    <nav class='hidden items-center gap-8 text-sm font-medium text-neutral-300 lg:flex'>
+      {
+        navLinks.map((link) => (
+          <a href={link.href} class='transition-colors hover:text-brand-orange hover:text-white'>
+            {link.label}
+          </a>
+        ))
+      }
+    </nav>
+
+    <div class='flex items-center gap-4'>
+      <a
+        href='#contact'
+        class='red-orange-grad hidden items-center gap-2 rounded-lg px-5 py-2.5 font-heading text-xs font-bold uppercase tracking-wider text-white transition-all duration-200 hover:-translate-y-0.5 hover:shadow-glow-red sm:inline-flex'
+      >
+        <span>HABLEMOS</span>
+        <Icon name='lucide:arrow-right' class='h-3.5 w-3.5' />
+      </a>
+      <button
+        id='mobileMenuBtn'
+        type='button'
+        aria-label='Abrir menú'
+        class='rounded-lg border border-neutral-800 bg-neutral-900 p-2 text-white transition-colors hover:border-brand-orange lg:hidden'
+      >
+        <Icon id='menuIcon' name='lucide:menu' class='h-6 w-6' />
+        <Icon id='closeIcon' name='lucide:x' class='hidden h-6 w-6' />
+      </button>
+    </div>
+  </div>
+
+  <div
+    id='mobileDrawer'
+    class='hidden border-b border-neutral-800 bg-brand-dark/95 px-6 py-6 backdrop-blur-xl transition-all duration-300 lg:hidden'
+  >
+    <nav class='flex flex-col gap-4 text-base font-medium'>
+      {
+        navLinks.map((link) => (
+          <a
+            href={link.href}
+            class='mobile-nav-link border-b border-neutral-900 py-2 text-neutral-200 hover:text-brand-orange'
+          >
+            {link.mobileLabel ?? link.label}
+          </a>
+        ))
+      }
+      <a
+        href='#contact'
+        class='mobile-nav-link red-orange-grad mt-2 rounded-lg py-3 text-center font-heading text-xs font-bold uppercase tracking-wider text-white'
+      >
+        HABLEMOS AHORA
+      </a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const navbar = document.getElementById('navbar');
+  const scrolledClasses = ['bg-brand-black/90', 'backdrop-blur-md', 'py-3.5', 'border-neutral-800'];
+  const topClasses = ['bg-transparent', 'py-5', 'border-transparent'];
+
+  function updateNavbar() {
+    const scrolled = window.scrollY > 50;
+    scrolledClasses.forEach((cls) => navbar?.classList.toggle(cls, scrolled));
+    topClasses.forEach((cls) => navbar?.classList.toggle(cls, !scrolled));
+  }
+
+  window.addEventListener('scroll', updateNavbar, { passive: true });
+  updateNavbar();
+
+  const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+  const mobileDrawer = document.getElementById('mobileDrawer');
+  const menuIcon = document.getElementById('menuIcon');
+  const closeIcon = document.getElementById('closeIcon');
+
+  function setMenuOpen(open: boolean) {
+    mobileDrawer?.classList.toggle('hidden', !open);
+    menuIcon?.classList.toggle('hidden', open);
+    closeIcon?.classList.toggle('hidden', !open);
+    mobileMenuBtn?.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+  }
+
+  mobileMenuBtn?.addEventListener('click', () => {
+    setMenuOpen(mobileDrawer?.classList.contains('hidden') ?? false);
+  });
+
+  document.querySelectorAll('.mobile-nav-link').forEach((link) => {
+    link.addEventListener('click', () => setMenuOpen(false));
+  });
+</script>

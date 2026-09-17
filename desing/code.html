@@ -1,0 +1,1616 @@
+<!DOCTYPE html><html class="scroll-smooth" lang="es" style="width: 1280px; height: 7467px; overflow: hidden; position: relative;"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>GUSTAV STUDIOS | Producción y Edición de Videos</title>
+<meta content="Portafolio de Gustav, editor y productor audiovisual. Edición de videos, contenido para redes sociales, videoclips, eventos y producción audiovisual." name="description">
+<meta content="GUSTAV STUDIOS | Producción y Edición de Videos" property="og:title">
+<meta content="Transformo ideas en historias que se ven. Producción y edición audiovisual con enfoque de alto impacto." property="og:description">
+<meta content="website" property="og:type">
+<!-- Google Fonts: Space Grotesk & Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700;800&amp;family=JetBrains+Mono:wght@400;600&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              black: '#050505',
+              dark: '#0a0a0a',
+              card: '#111111',
+              border: '#222222',
+              red: '#FF0700',
+              orange: '#FF5C00',
+              vivid: '#FF3200',
+              muted: '#888888',
+            }
+          },
+          fontFamily: {
+            heading: ['"Space Grotesk"', 'sans-serif'],
+            sans: ['Inter', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          boxShadow: {
+            'glow-red': '0 0 30px -5px rgba(255, 7, 0, 0.45)',
+            'glow-orange': '0 0 30px -5px rgba(255, 92, 0, 0.45)',
+            'glow-card': '0 10px 40px -10px rgba(255, 50, 0, 0.15)',
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #080808;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #262626;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #FF3200;
+    }
+
+    /* Ambient noise & grid */
+    .cyber-grid {
+      background-size: 40px 40px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    }
+    
+    .radial-flare {
+      background: radial-gradient(circle at 50% 30%, rgba(255, 50, 0, 0.18) 0%, rgba(255, 7, 0, 0.05) 45%, transparent 75%);
+    }
+
+    .red-orange-grad {
+      background: linear-gradient(135deg, #FF0700 0%, #FF5C00 100%);
+    }
+
+    .text-gradient {
+      background: linear-gradient(135deg, #FFFFFF 20%, #FF5C00 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .border-gradient {
+      border-image: linear-gradient(to bottom right, #FF0700, #FF5C00, #333333) 1;
+    }
+
+    /* Custom pointer circle for desktop */
+    @media (pointer: fine) {
+      .cursor-dot {
+        pointer-events: none;
+        position: fixed;
+        width: 10px;
+        height: 10px;
+        background: #FF5C00;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        transition: width 0.2s, height 0.2s, background-color 0.2s, opacity 0.2s;
+        z-index: 9999;
+      }
+      .cursor-outline {
+        pointer-events: none;
+        position: fixed;
+        width: 38px;
+        height: 38px;
+        border: 1.5px solid rgba(255, 92, 0, 0.4);
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        transition: transform 0.08s ease-out, width 0.2s, height 0.2s, border-color 0.2s;
+        z-index: 9998;
+      }
+    }
+  </style>
+</head>
+<body class="bg-brand-black text-white font-sans antialiased overflow-x-hidden relative selection:bg-brand-orange selection:text-white" data-mode="connect">
+<!-- Desktop Custom Interactive Cursor -->
+<div class="cursor-dot hidden md:block" id="cursorDot" style="background-color: rgb(255, 92, 0); left: 1266px; top: 5100px;"></div>
+<div class="cursor-outline hidden md:block" id="cursorOutline" style="transform: translate(-50%, -50%) scale(1); border-color: rgba(255, 92, 0, 0.4);"></div>
+<!-- Preloader Screen -->
+<div class="fixed inset-0 z-[100] bg-brand-black flex flex-col items-center justify-center transition-opacity duration-700 opacity-0 pointer-events-none" id="preloader" style="display: none;">
+<div class="relative flex flex-col items-center">
+<div class="flex items-center gap-2 mb-3">
+<span class="w-3 h-3 rounded-full bg-brand-red animate-ping"></span>
+<span class="font-mono text-xs uppercase tracking-widest text-brand-orange">REC • 4K 60FPS</span>
+</div>
+<h1 class="font-heading font-extrabold text-3xl md:text-5xl tracking-tighter text-white">
+        GUSTAV <span class="text-brand-orange">STUDIOS</span>
+</h1>
+<p class="text-xs uppercase tracking-[0.35em] text-neutral-400 mt-2 font-mono">Producción &amp; Edición de Videos</p>
+<!-- Progress counter -->
+<div class="w-48 h-1 bg-neutral-900 rounded-full mt-6 overflow-hidden relative">
+<div class="h-full red-orange-grad w-0 transition-all duration-300" id="preloadBar" style="width: 100%;"></div>
+</div>
+<span class="font-mono text-xs text-neutral-500 mt-2" id="preloadPercent">100%</span>
+</div>
+</div>
+<!-- Ambient Glow Elements -->
+<div class="fixed top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] radial-flare pointer-events-none z-0"></div>
+<div class="fixed -bottom-40 -right-40 w-[600px] h-[600px] bg-brand-orange/5 blur-[140px] pointer-events-none z-0"></div>
+<div class="fixed top-1/2 -left-40 w-[500px] h-[500px] bg-brand-red/5 blur-[140px] pointer-events-none z-0"></div>
+<!-- Sticky Navbar -->
+<header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b bg-transparent bg-brand-black/90 backdrop-blur-md py-3.5 border-neutral-800" id="navbar">
+<div class="max-w-7xl mx-auto px-5 sm:px-8 flex items-center justify-between">
+<!-- Brand Logo -->
+<a class="group flex flex-col focus:outline-none" href="#hero">
+<div class="flex items-center gap-2">
+<img src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6xEXFtKHmztOjq4Zq0Plo6qRSgX9x6Lgh6QzWCkc068MGkqWpSo8XpP2FhiUR4IUeZqim9gAosFUuIQP1NX4JyeNy-k1Z5rEYaLC9Rr_CbAT4dZKhOlqr6DM0ViBbgV6XV3--rzTxts1K8bTfwnlLdKtvcYzbi6bXZh0eV85tdnUwK686owbLRncRMaCAFDuQITDIh9lND2ho3yopI6XdsN5cmElbKvTgcvxyXej30Ue44jmkyaYBDeL-CFLFzNmAM08" alt="Gustav Studios Logo" class="h-10 w-auto object-contain group-hover:scale-105 transition-transform duration-200">
+<span class="font-heading font-extrabold text-xl tracking-tight text-white group-hover:text-brand-orange transition-colors">
+            GUSTAV <span class="text-brand-red">STUDIOS</span>
+</span>
+</div>
+<span class="text-[10px] uppercase font-mono tracking-widest text-neutral-400 pl-10 -mt-1 hidden sm:block">
+          Producción &amp; Edición de Videos
+        </span>
+</a>
+<!-- Desktop Nav Menu -->
+<nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-neutral-300">
+<a class="hover:text-white hover:text-brand-orange transition-colors" href="#hero">Inicio</a>
+
+<a class="hover:text-white hover:text-brand-orange transition-colors" href="#portfolio">Portafolio</a>
+<a class="hover:text-white hover:text-brand-orange transition-colors" href="#services">Servicios</a>
+<a class="hover:text-white hover:text-brand-orange transition-colors" href="#about">Sobre Mí</a>
+<a class="hover:text-white hover:text-brand-orange transition-colors" href="#galeria">Galería</a><a class="hover:text-white hover:text-brand-orange transition-colors" href="#process">Proceso</a>
+</nav>
+<!-- CTA & Mobile Toggle -->
+<div class="flex items-center gap-4">
+<a class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-lg font-heading font-bold text-xs uppercase tracking-wider text-white red-orange-grad hover:shadow-glow-red hover:-translate-y-0.5 transition-all duration-200" href="#contact">
+<span class="">HABLEMOS</span>
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</a>
+<!-- Hamburger Button -->
+<button aria-label="Abrir Menú" class="lg:hidden p-2 rounded-lg bg-neutral-900 border border-neutral-800 text-white hover:border-brand-orange transition-colors" id="mobileMenuBtn">
+<svg class="w-6 h-6" fill="none" id="menuIcon" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<svg class="w-6 h-6 hidden" fill="none" id="closeIcon" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+</div>
+</div>
+<!-- Mobile Drawer Menu -->
+<div class="hidden lg:hidden bg-brand-dark/98 backdrop-blur-xl border-b border-neutral-800 px-6 py-6 transition-all duration-300" id="mobileDrawer">
+<nav class="flex flex-col gap-4 text-base font-medium">
+<a class="mobile-nav-link py-2 border-b border-neutral-900 text-neutral-200 hover:text-brand-orange" href="#hero">Inicio</a>
+
+<a class="mobile-nav-link py-2 border-b border-neutral-900 text-neutral-200 hover:text-brand-orange" href="#portfolio">Portafolio</a>
+<a class="mobile-nav-link py-2 border-b border-neutral-900 text-neutral-200 hover:text-brand-orange" href="#services">Servicios</a>
+<a class="mobile-nav-link py-2 border-b border-neutral-900 text-neutral-200 hover:text-brand-orange" href="#about">Sobre Mí</a>
+<a class="mobile-nav-link py-2 border-b border-neutral-900 text-neutral-200 hover:text-brand-orange" href="#galeria">Galería</a><a class="mobile-nav-link py-2 border-b border-neutral-900 text-neutral-200 hover:text-brand-orange" href="#process">Proceso de Trabajo</a>
+<a class="mobile-nav-link mt-2 text-center py-3 rounded-lg red-orange-grad font-heading font-bold text-xs uppercase tracking-wider text-white" href="#contact">
+          HABLEMOS AHORA
+        </a>
+</nav>
+</div>
+</header>
+<main class="relative z-10">
+<!-- HERO SECTION -->
+<section class="relative min-h-screen flex items-center justify-center pt-24 px-5 sm:px-8 overflow-hidden cyber-grid pb-12" id="hero">
+<!-- Video Background with Poster & Ambient Darkener -->
+<div class="absolute inset-0 w-full h-full pointer-events-none overflow-hidden z-0">
+<!-- Replaceable Video URL Placeholder: HERO_VIDEO_URL -->
+<video autoplay="" class="w-full h-full object-cover opacity-30 scale-105 filter saturate-150 contrast-125 transition-opacity duration-1000" id="heroVideo" loop="" muted="" playsinline="" poster="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&amp;w=1920&amp;auto=format&amp;fit=crop">
+<source src="https://assets.mixkit.co/videos/preview/mixkit-cyberpunk-city-at-night-with-neon-lights-42939-large.mp4" type="video/mp4">
+</video>
+<!-- Gradients over video for perfect contrast -->
+<div class="absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/70 to-brand-black/90"></div>
+<div class="absolute inset-0 bg-radial-at-c from-transparent via-brand-black/50 to-brand-black"></div>
+</div>
+<div class="max-w-5xl mx-auto text-center relative z-10 flex flex-col items-center">
+<!-- Live Tag Badge -->
+<div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-dark/90 border border-neutral-800 text-neutral-300 mb-6 backdrop-blur-md">
+<span class="w-2 h-2 rounded-full bg-brand-red animate-pulse"></span>
+<span class="font-mono text-xs uppercase tracking-widest text-neutral-300">CREADOR AUDIOVISUAL</span>
+<span class="text-neutral-600">•</span>
+<span class="text-xs text-brand-orange font-mono">DISPONIBLE PARA PROYECTOS</span>
+</div>
+<!-- Main Punchy Title -->
+<h1 class="font-heading font-extrabold text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tighter uppercase leading-[1.05] text-white">TRANSFORMO <span style="color: rgb(255, 7, 0);" class="">IDEAS</span> EN <br class="hidden sm:block">
+<span style="background: linear-gradient(135deg, rgb(255, 7, 0), rgb(255, 92, 0)) text; -webkit-text-fill-color: transparent; color: transparent; display: inline-block;" class="">HISTORIAS QUE SE VEN.</span></h1>
+<!-- Subtitle -->
+<p class="mt-6 text-base sm:text-xl text-neutral-300 max-w-2xl font-normal leading-relaxed">
+          Producción y edición de videos con enfoque creativo y dinámico. Ritmo, color y narrativa que capturan audiencias.
+        </p>
+<!-- CTA Action Buttons -->
+<div class="mt-10 flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
+<a class="w-full sm:w-auto px-8 py-4 rounded-xl font-heading font-bold text-sm tracking-wider uppercase text-white red-orange-grad hover:shadow-glow-orange hover:-translate-y-1 transition-all duration-200 flex items-center justify-center gap-3" href="#portfolio">
+<!-- Play icon -->
+<svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg>
+<span class="">VER PORTAFOLIO</span>
+</a>
+<a class="w-full sm:w-auto px-8 py-4 rounded-xl font-heading font-bold text-sm tracking-wider uppercase text-neutral-200 bg-neutral-900/80 hover:bg-neutral-800 border border-neutral-800 hover:border-brand-orange transition-all duration-200 flex items-center justify-center gap-2" href="#contact">
+<span class="">TRABAJEMOS JUNTOS</span>
+<svg class="w-4 h-4 text-brand-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17 8l4 4m0 0l-4 4m4-4H3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</a>
+</div>
+<!-- Quick Trust Metrics -->
+
+<!-- Scroll Indicator -->
+
+</div>
+</section>
+<!-- SHOWREEL SECTION (FEATURED MASTER PROJECT) -->
+
+<!-- PORTFOLIO / GALLERY SECTION -->
+<section class="px-5 sm:px-8 max-w-7xl mx-auto pb-16 pt-4" id="portfolio">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-8 pb-4 border-b border-neutral-900">
+<div>
+<span class="font-mono text-xs uppercase tracking-widest text-brand-orange">TRABAJOS SELECCIONADOS</span>
+<h2 class="font-heading font-extrabold text-3xl sm:text-5xl uppercase tracking-tight text-white mt-1">
+            PORTAFOLIO AUDIOVISUAL
+          </h2>
+</div>
+<p class="text-neutral-400 text-sm max-w-md mt-3 md:mt-0">
+          "Cada proyecto tiene una historia. Aquí puedes explorar algunos de mis trabajos." Filtra por categoría y abre para ver el video completo.
+        </p>
+</div>
+<!-- Filter Tabs Bar (Horizontal scroll on mobile) -->
+<div class="flex items-center gap-2 overflow-x-auto pb-4 mb-8 no-scrollbar">
+<button class="filter-btn active px-4 py-2 rounded-lg font-mono text-xs uppercase tracking-wider transition-all duration-200 bg-brand-red text-white border border-brand-red" data-cat="all" onclick="filterPortfolio('all')">
+          TODOS
+        </button>
+<button class="filter-btn px-4 py-2 rounded-lg font-mono text-xs uppercase tracking-wider transition-all duration-200 bg-neutral-900 hover:bg-neutral-800 text-neutral-300 border border-neutral-800" data-cat="reels" onclick="filterPortfolio('reels')">
+          REELS INSTAGRAM
+        </button>
+<button class="filter-btn px-4 py-2 rounded-lg font-mono text-xs uppercase tracking-wider transition-all duration-200 bg-neutral-900 hover:bg-neutral-800 text-neutral-300 border border-neutral-800" data-cat="shorts" onclick="filterPortfolio('shorts')">
+          SHORTS / TIKTOK
+        </button>
+<button class="filter-btn px-4 py-2 rounded-lg font-mono text-xs uppercase tracking-wider transition-all duration-200 bg-neutral-900 hover:bg-neutral-800 text-neutral-300 border border-neutral-800" data-cat="podcast" onclick="filterPortfolio('podcast')">
+          PODCAST
+        </button>
+<button class="filter-btn px-4 py-2 rounded-lg font-mono text-xs uppercase tracking-wider transition-all duration-200 bg-neutral-900 hover:bg-neutral-800 text-neutral-300 border border-neutral-800" data-cat="social" onclick="filterPortfolio('social')">
+          REDES SOCIALES
+        </button>
+<button class="filter-btn px-4 py-2 rounded-lg font-mono text-xs uppercase tracking-wider transition-all duration-200 bg-neutral-900 hover:bg-neutral-800 text-neutral-300 border border-neutral-800" data-cat="eventos" onclick="filterPortfolio('eventos')">
+          EVENTOS
+        </button>
+<button class="filter-btn px-4 py-2 rounded-lg font-mono text-xs uppercase tracking-wider transition-all duration-200 bg-neutral-900 hover:bg-neutral-800 text-neutral-300 border border-neutral-800" data-cat="otros" onclick="filterPortfolio('otros')">
+          OTROS
+        </button>
+</div>
+<!-- Dynamic Portfolio Grid Container -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="portfolioGrid"><div class="group relative rounded-2xl overflow-hidden bg-brand-card border border-neutral-800/90 hover:border-brand-orange transition-all duration-300 flex flex-col justify-between cursor-pointer hover:shadow-glow-card">
+          <div class="relative aspect-video w-full overflow-hidden bg-neutral-950">
+            <!-- Thumbnail with soft zoom -->
+            <img src="https://images.unsplash.com/photo-1536240478700-b869070f9279?q=80&amp;w=1000&amp;auto=format&amp;fit=crop" alt="Reel Audiovisual 2026 — Master Cut" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90" loading="lazy">
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/20 to-transparent"></div>
+            
+            <!-- Play Button Hover Reveal -->
+            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+              <div class="w-14 h-14 rounded-full red-orange-grad flex items-center justify-center text-white shadow-glow-red transform scale-90 group-hover:scale-100 transition-transform">
+                <svg class="w-6 h-6 fill-current ml-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg>
+              </div>
+            </div>
+
+            <!-- Top tags -->
+            <div class="absolute top-3 left-3">
+              <span class="px-2.5 py-1 rounded-md bg-black/80 backdrop-blur-md border border-neutral-700 text-[10px] font-mono font-bold tracking-wider text-brand-orange uppercase">
+                SHOWREEL
+              </span>
+            </div>
+
+            <div class="absolute top-3 right-3 font-mono text-[10px] text-neutral-300 bg-black/80 backdrop-blur-md px-2 py-0.5 rounded border border-neutral-800">
+              01:45
+            </div>
+          </div>
+
+          <!-- Card Body Details -->
+          <div class="p-5 flex flex-col justify-between flex-1">
+            <div>
+              <h3 class="font-heading font-bold text-lg text-white group-hover:text-brand-orange transition-colors line-clamp-1">
+                Reel Audiovisual 2026 — Master Cut
+              </h3>
+              <p class="text-xs text-neutral-400 mt-2 line-clamp-2 leading-relaxed">
+                Compilación cinematográfica de trabajos de edición, ritmo acelerado, sound design y color grading de alta gama para proyectos internacionales.
+              </p>
+            </div>
+
+            <div class="mt-4 pt-3 border-t border-neutral-900/80 flex items-center justify-between text-[11px] font-mono text-neutral-500">
+              <span class="">Cliente: <strong class="text-neutral-300">Gustav Studios</strong></span>
+              <span class="text-brand-orange flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                Ver Video →
+              </span>
+            </div>
+          </div>
+        </div><div class="group relative rounded-2xl overflow-hidden bg-brand-card border border-neutral-800/90 hover:border-brand-orange transition-all duration-300 flex flex-col justify-between cursor-pointer hover:shadow-glow-card">
+          <div class="relative aspect-video w-full overflow-hidden bg-neutral-950">
+            <!-- Thumbnail with soft zoom -->
+            <img src="https://images.unsplash.com/photo-1518609878373-06d740f60d8b?q=80&amp;w=800&amp;auto=format&amp;fit=crop" alt="Campaña Urbana Nike x Apex" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90" loading="lazy">
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/20 to-transparent"></div>
+            
+            <!-- Play Button Hover Reveal -->
+            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+              <div class="w-14 h-14 rounded-full red-orange-grad flex items-center justify-center text-white shadow-glow-red transform scale-90 group-hover:scale-100 transition-transform">
+                <svg class="w-6 h-6 fill-current ml-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg>
+              </div>
+            </div>
+
+            <!-- Top tags -->
+            <div class="absolute top-3 left-3">
+              <span class="px-2.5 py-1 rounded-md bg-black/80 backdrop-blur-md border border-neutral-700 text-[10px] font-mono font-bold tracking-wider text-brand-orange uppercase">
+                REELS INSTAGRAM
+              </span>
+            </div>
+
+            <div class="absolute top-3 right-3 font-mono text-[10px] text-neutral-300 bg-black/80 backdrop-blur-md px-2 py-0.5 rounded border border-neutral-800">
+              00:45
+            </div>
+          </div>
+
+          <!-- Card Body Details -->
+          <div class="p-5 flex flex-col justify-between flex-1">
+            <div>
+              <h3 class="font-heading font-bold text-lg text-white group-hover:text-brand-orange transition-colors line-clamp-1">
+                Campaña Urbana Nike x Apex
+              </h3>
+              <p class="text-xs text-neutral-400 mt-2 line-clamp-2 leading-relaxed">
+                Edición dinámica con speed ramps, motion graphics y sincronización de beat musical de alta intensidad enfocado en conversión y engagement.
+              </p>
+            </div>
+
+            <div class="mt-4 pt-3 border-t border-neutral-900/80 flex items-center justify-between text-[11px] font-mono text-neutral-500">
+              <span class="">Cliente: <strong class="text-neutral-300">Urban Sports Lab</strong></span>
+              <span class="text-brand-orange flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                Ver Video →
+              </span>
+            </div>
+          </div>
+        </div><div class="group relative rounded-2xl overflow-hidden bg-brand-card border border-neutral-800/90 hover:border-brand-orange transition-all duration-300 flex flex-col justify-between cursor-pointer hover:shadow-glow-card">
+          <div class="relative aspect-video w-full overflow-hidden bg-neutral-950">
+            <!-- Thumbnail with soft zoom -->
+            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&amp;w=800&amp;auto=format&amp;fit=crop" alt="TikTok Hook Viral — Finanzas para Creadores" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90" loading="lazy">
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/20 to-transparent"></div>
+            
+            <!-- Play Button Hover Reveal -->
+            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+              <div class="w-14 h-14 rounded-full red-orange-grad flex items-center justify-center text-white shadow-glow-red transform scale-90 group-hover:scale-100 transition-transform">
+                <svg class="w-6 h-6 fill-current ml-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg>
+              </div>
+            </div>
+
+            <!-- Top tags -->
+            <div class="absolute top-3 left-3">
+              <span class="px-2.5 py-1 rounded-md bg-black/80 backdrop-blur-md border border-neutral-700 text-[10px] font-mono font-bold tracking-wider text-brand-orange uppercase">
+                SHORTS / TIKTOK
+              </span>
+            </div>
+
+            <div class="absolute top-3 right-3 font-mono text-[10px] text-neutral-300 bg-black/80 backdrop-blur-md px-2 py-0.5 rounded border border-neutral-800">
+              00:58
+            </div>
+          </div>
+
+          <!-- Card Body Details -->
+          <div class="p-5 flex flex-col justify-between flex-1">
+            <div>
+              <h3 class="font-heading font-bold text-lg text-white group-hover:text-brand-orange transition-colors line-clamp-1">
+                TikTok Hook Viral — Finanzas para Creadores
+              </h3>
+              <p class="text-xs text-neutral-400 mt-2 line-clamp-2 leading-relaxed">
+                Edición vertical 9:16 con subtítulos kinetic animados, b-rolls dinámicos y sonido asmr de teclados e interfaces. Superó 2.4M de reproducciones.
+              </p>
+            </div>
+
+            <div class="mt-4 pt-3 border-t border-neutral-900/80 flex items-center justify-between text-[11px] font-mono text-neutral-500">
+              <span class="">Cliente: <strong class="text-neutral-300">FinCreator Media</strong></span>
+              <span class="text-brand-orange flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                Ver Video →
+              </span>
+            </div>
+          </div>
+        </div><div class="group relative rounded-2xl overflow-hidden bg-brand-card border border-neutral-800/90 hover:border-brand-orange transition-all duration-300 flex flex-col justify-between cursor-pointer hover:shadow-glow-card">
+          <div class="relative aspect-video w-full overflow-hidden bg-neutral-950">
+            <!-- Thumbnail with soft zoom -->
+            <img src="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?q=80&amp;w=800&amp;auto=format&amp;fit=crop" alt="Episodio 42 — The Founder's Mindset" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90" loading="lazy">
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/20 to-transparent"></div>
+            
+            <!-- Play Button Hover Reveal -->
+            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+              <div class="w-14 h-14 rounded-full red-orange-grad flex items-center justify-center text-white shadow-glow-red transform scale-90 group-hover:scale-100 transition-transform">
+                <svg class="w-6 h-6 fill-current ml-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg>
+              </div>
+            </div>
+
+            <!-- Top tags -->
+            <div class="absolute top-3 left-3">
+              <span class="px-2.5 py-1 rounded-md bg-black/80 backdrop-blur-md border border-neutral-700 text-[10px] font-mono font-bold tracking-wider text-brand-orange uppercase">
+                PODCAST
+              </span>
+            </div>
+
+            <div class="absolute top-3 right-3 font-mono text-[10px] text-neutral-300 bg-black/80 backdrop-blur-md px-2 py-0.5 rounded border border-neutral-800">
+              45:10
+            </div>
+          </div>
+
+          <!-- Card Body Details -->
+          <div class="p-5 flex flex-col justify-between flex-1">
+            <div>
+              <h3 class="font-heading font-bold text-lg text-white group-hover:text-brand-orange transition-colors line-clamp-1">
+                Episodio 42 — The Founder's Mindset
+              </h3>
+              <p class="text-xs text-neutral-400 mt-2 line-clamp-2 leading-relaxed">
+                Edición multicámara de 3 planos con nivelación de audio broadcast LUFS -14, reducción de ruido iZotope y cortes automatizados para clipping.
+              </p>
+            </div>
+
+            <div class="mt-4 pt-3 border-t border-neutral-900/80 flex items-center justify-between text-[11px] font-mono text-neutral-500">
+              <span class="">Cliente: <strong class="text-neutral-300">Founder Talks Pod</strong></span>
+              <span class="text-brand-orange flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                Ver Video →
+              </span>
+            </div>
+          </div>
+        </div><div class="group relative rounded-2xl overflow-hidden bg-brand-card border border-neutral-800/90 hover:border-brand-orange transition-all duration-300 flex flex-col justify-between cursor-pointer hover:shadow-glow-card">
+          <div class="relative aspect-video w-full overflow-hidden bg-neutral-950">
+            <!-- Thumbnail with soft zoom -->
+            <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&amp;w=800&amp;auto=format&amp;fit=crop" alt="Spot Promocional Cyberpunk Festival" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90" loading="lazy">
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/20 to-transparent"></div>
+            
+            <!-- Play Button Hover Reveal -->
+            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+              <div class="w-14 h-14 rounded-full red-orange-grad flex items-center justify-center text-white shadow-glow-red transform scale-90 group-hover:scale-100 transition-transform">
+                <svg class="w-6 h-6 fill-current ml-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg>
+              </div>
+            </div>
+
+            <!-- Top tags -->
+            <div class="absolute top-3 left-3">
+              <span class="px-2.5 py-1 rounded-md bg-black/80 backdrop-blur-md border border-neutral-700 text-[10px] font-mono font-bold tracking-wider text-brand-orange uppercase">
+                EVENTOS
+              </span>
+            </div>
+
+            <div class="absolute top-3 right-3 font-mono text-[10px] text-neutral-300 bg-black/80 backdrop-blur-md px-2 py-0.5 rounded border border-neutral-800">
+              02:15
+            </div>
+          </div>
+
+          <!-- Card Body Details -->
+          <div class="p-5 flex flex-col justify-between flex-1">
+            <div>
+              <h3 class="font-heading font-bold text-lg text-white group-hover:text-brand-orange transition-colors line-clamp-1">
+                Spot Promocional Cyberpunk Festival
+              </h3>
+              <p class="text-xs text-neutral-400 mt-2 line-clamp-2 leading-relaxed">
+                Aftermovie con gradación de color neón, efectos VHS distorsionados, sound design espacial y montaje al ritmo de música electrónica synthwave.
+              </p>
+            </div>
+
+            <div class="mt-4 pt-3 border-t border-neutral-900/80 flex items-center justify-between text-[11px] font-mono text-neutral-500">
+              <span class="">Cliente: <strong class="text-neutral-300">Neon Dreams Festival</strong></span>
+              <span class="text-brand-orange flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                Ver Video →
+              </span>
+            </div>
+          </div>
+        </div><div class="group relative rounded-2xl overflow-hidden bg-brand-card border border-neutral-800/90 hover:border-brand-orange transition-all duration-300 flex flex-col justify-between cursor-pointer hover:shadow-glow-card">
+          <div class="relative aspect-video w-full overflow-hidden bg-neutral-950">
+            <!-- Thumbnail with soft zoom -->
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&amp;w=800&amp;auto=format&amp;fit=crop" alt="Lanzamiento App SaaS — Tech Showcase" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90" loading="lazy">
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/20 to-transparent"></div>
+            
+            <!-- Play Button Hover Reveal -->
+            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+              <div class="w-14 h-14 rounded-full red-orange-grad flex items-center justify-center text-white shadow-glow-red transform scale-90 group-hover:scale-100 transition-transform">
+                <svg class="w-6 h-6 fill-current ml-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg>
+              </div>
+            </div>
+
+            <!-- Top tags -->
+            <div class="absolute top-3 left-3">
+              <span class="px-2.5 py-1 rounded-md bg-black/80 backdrop-blur-md border border-neutral-700 text-[10px] font-mono font-bold tracking-wider text-brand-orange uppercase">
+                REDES SOCIALES
+              </span>
+            </div>
+
+            <div class="absolute top-3 right-3 font-mono text-[10px] text-neutral-300 bg-black/80 backdrop-blur-md px-2 py-0.5 rounded border border-neutral-800">
+              01:10
+            </div>
+          </div>
+
+          <!-- Card Body Details -->
+          <div class="p-5 flex flex-col justify-between flex-1">
+            <div>
+              <h3 class="font-heading font-bold text-lg text-white group-hover:text-brand-orange transition-colors line-clamp-1">
+                Lanzamiento App SaaS — Tech Showcase
+              </h3>
+              <p class="text-xs text-neutral-400 mt-2 line-clamp-2 leading-relaxed">
+                Video explicativo con mockups 3D, motion graphics en After Effects y ritmo fluido para campañas de captación en LinkedIn y Meta Ads.
+              </p>
+            </div>
+
+            <div class="mt-4 pt-3 border-t border-neutral-900/80 flex items-center justify-between text-[11px] font-mono text-neutral-500">
+              <span class="">Cliente: <strong class="text-neutral-300">CloudPulse Tech</strong></span>
+              <span class="text-brand-orange flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                Ver Video →
+              </span>
+            </div>
+          </div>
+        </div><div class="group relative rounded-2xl overflow-hidden bg-brand-card border border-neutral-800/90 hover:border-brand-orange transition-all duration-300 flex flex-col justify-between cursor-pointer hover:shadow-glow-card">
+          <div class="relative aspect-video w-full overflow-hidden bg-neutral-950">
+            <!-- Thumbnail with soft zoom -->
+            <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&amp;w=800&amp;auto=format&amp;fit=crop" alt="Videoclip Acústico — Luces de Medianoche" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90" loading="lazy">
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/20 to-transparent"></div>
+            
+            <!-- Play Button Hover Reveal -->
+            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+              <div class="w-14 h-14 rounded-full red-orange-grad flex items-center justify-center text-white shadow-glow-red transform scale-90 group-hover:scale-100 transition-transform">
+                <svg class="w-6 h-6 fill-current ml-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg>
+              </div>
+            </div>
+
+            <!-- Top tags -->
+            <div class="absolute top-3 left-3">
+              <span class="px-2.5 py-1 rounded-md bg-black/80 backdrop-blur-md border border-neutral-700 text-[10px] font-mono font-bold tracking-wider text-brand-orange uppercase">
+                OTROS
+              </span>
+            </div>
+
+            <div class="absolute top-3 right-3 font-mono text-[10px] text-neutral-300 bg-black/80 backdrop-blur-md px-2 py-0.5 rounded border border-neutral-800">
+              03:40
+            </div>
+          </div>
+
+          <!-- Card Body Details -->
+          <div class="p-5 flex flex-col justify-between flex-1">
+            <div>
+              <h3 class="font-heading font-bold text-lg text-white group-hover:text-brand-orange transition-colors line-clamp-1">
+                Videoclip Acústico — Luces de Medianoche
+              </h3>
+              <p class="text-xs text-neutral-400 mt-2 line-clamp-2 leading-relaxed">
+                Color grading cinematográfico estilo 35mm con grano orgánico de película, iluminación natural y montaje sensible basado en las emociones de la melodía.
+              </p>
+            </div>
+
+            <div class="mt-4 pt-3 border-t border-neutral-900/80 flex items-center justify-between text-[11px] font-mono text-neutral-500">
+              <span class="">Cliente: <strong class="text-neutral-300">Indie Music Records</strong></span>
+              <span class="text-brand-orange flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                Ver Video →
+              </span>
+            </div>
+          </div>
+        </div></div>
+</section>
+<!-- SERVICES SECTION -->
+<section class="py-20 px-5 sm:px-8 max-w-7xl mx-auto" id="services">
+<div class="text-center max-w-3xl mx-auto mb-16">
+<span class="font-mono text-xs uppercase tracking-widest text-brand-orange">SOLUCIONES A TU MEDIDA</span>
+<h2 class="font-heading font-extrabold text-3xl sm:text-5xl uppercase tracking-tight text-white mt-2">
+          ¿QUÉ PUEDO HACER POR TI?
+        </h2>
+<p class="text-neutral-400 text-sm sm:text-base mt-4">
+          Servicios integrales desde el corte inicial hasta el color grading final y la optimización para múltiples plataformas digitales.
+        </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Service 1 -->
+<div class="group p-8 rounded-2xl bg-brand-card border border-neutral-800/80 hover:border-brand-orange transition-all duration-300 relative overflow-hidden flex flex-col justify-between">
+<div class="absolute top-0 right-0 w-24 h-24 bg-brand-red/5 rounded-full blur-2xl group-hover:bg-brand-red/20 transition-all"></div>
+<div>
+<div class="w-12 h-12 rounded-xl bg-neutral-900 border border-neutral-700 flex items-center justify-center text-brand-orange mb-6 group-hover:scale-110 transition-transform">
+<!-- Scissors / Cut icon -->
+<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M14.121 14.121L19 19m-7-7l7-7m-7 7l-2.879 2.879M12 12L9.121 9.121m0 5.758a3 3 0 10-4.242 4.243 3 3 0 004.242-4.243zm0-5.758a3 3 0 10-4.242-4.242 3 3 0 004.242 4.242z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<h3 class="font-heading font-bold text-xl text-white group-hover:text-brand-orange transition-colors">
+              EDICIÓN DE VIDEO
+            </h3>
+<p class="text-neutral-400 text-sm mt-3 leading-relaxed">
+              Edición profesional, cortes dinámicos, ritmo visual envolvente, sincronización musical y narrativa que atrapa desde el primer segundo.
+            </p>
+</div>
+<div class="mt-6 pt-4 border-t border-neutral-900 flex items-center justify-between text-xs font-mono text-neutral-500">
+<span class="">RITMO &amp; STORYTELLING</span>
+<span class="text-brand-orange font-bold">01</span>
+</div>
+</div>
+<!-- Service 2 -->
+<div class="group p-8 rounded-2xl bg-brand-card border border-neutral-800/80 hover:border-brand-orange transition-all duration-300 relative overflow-hidden flex flex-col justify-between">
+<div class="absolute top-0 right-0 w-24 h-24 bg-brand-orange/5 rounded-full blur-2xl group-hover:bg-brand-orange/20 transition-all"></div>
+<div class="">
+<div class="w-12 h-12 rounded-xl bg-neutral-900 border border-neutral-700 flex items-center justify-center text-brand-red mb-6 group-hover:scale-110 transition-transform">
+<!-- Smartphone / Social Reels icon -->
+<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<h3 class="font-heading font-bold text-xl text-white group-hover:text-brand-orange transition-colors">
+              VIDEOS PARA REDES SOCIALES
+            </h3>
+<p class="text-neutral-400 text-sm mt-3 leading-relaxed">
+              Contenido optimizado para TikTok, Instagram Reels, YouTube Shorts y Facebook. Hooks de alto impacto, subtítulos animados y transiciones virales.
+            </p>
+</div>
+<div class="mt-6 pt-4 border-t border-neutral-900 flex items-center justify-between text-xs font-mono text-neutral-500">
+<span class="">VERTICAL 9:16 &amp; VIRAL</span>
+<span class="text-brand-orange font-bold">02</span>
+</div>
+</div>
+<!-- Service 3 -->
+<div class="group p-8 rounded-2xl bg-brand-card border border-neutral-800/80 hover:border-brand-orange transition-all duration-300 relative overflow-hidden flex flex-col justify-between">
+<div class="absolute top-0 right-0 w-24 h-24 bg-brand-vivid/5 rounded-full blur-2xl group-hover:bg-brand-vivid/20 transition-all"></div>
+<div>
+<div class="w-12 h-12 rounded-xl bg-neutral-900 border border-neutral-700 flex items-center justify-center text-brand-orange mb-6 group-hover:scale-110 transition-transform">
+<!-- Video Camera icon -->
+<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<h3 class="font-heading font-bold text-xl text-white group-hover:text-brand-orange transition-colors">
+              PRODUCCIÓN AUDIOVISUAL
+            </h3>
+<p class="text-neutral-400 text-sm mt-3 leading-relaxed">
+              Planificación, rodaje y desarrollo de material audiovisual cinematográfico con iluminación cuidada, audio profesional y dirección de escena.
+            </p>
+</div>
+<div class="mt-6 pt-4 border-t border-neutral-900 flex items-center justify-between text-xs font-mono text-neutral-500">
+<span class="">PRODUCCIÓN INTEGRAL</span>
+<span class="text-brand-orange font-bold">03</span>
+</div>
+</div>
+<!-- Service 4 -->
+<div class="group p-8 rounded-2xl bg-brand-card border border-neutral-800/80 hover:border-brand-orange transition-all duration-300 relative overflow-hidden flex flex-col justify-between">
+<div class="absolute top-0 right-0 w-24 h-24 bg-brand-red/5 rounded-full blur-2xl group-hover:bg-brand-red/20 transition-all"></div>
+<div>
+<div class="w-12 h-12 rounded-xl bg-neutral-900 border border-neutral-700 flex items-center justify-center text-brand-red mb-6 group-hover:scale-110 transition-transform">
+<!-- Briefcase / Corporate icon -->
+<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<h3 class="font-heading font-bold text-xl text-white group-hover:text-brand-orange transition-colors">
+              VIDEO CORPORATIVO
+            </h3>
+<p class="text-neutral-400 text-sm mt-3 leading-relaxed">
+              Videos profesionales para empresas, testimoniales de clientes, presentaciones de producto y branding corporativo que comunican autoridad.
+            </p>
+</div>
+<div class="mt-6 pt-4 border-t border-neutral-900 flex items-center justify-between text-xs font-mono text-neutral-500">
+<span class="">BRANDING &amp; B2B</span>
+<span class="text-brand-orange font-bold">04</span>
+</div>
+</div>
+<!-- Service 5 -->
+<div class="group p-8 rounded-2xl bg-brand-card border border-neutral-800/80 hover:border-brand-orange transition-all duration-300 relative overflow-hidden flex flex-col justify-between">
+<div class="absolute top-0 right-0 w-24 h-24 bg-brand-orange/5 rounded-full blur-2xl group-hover:bg-brand-orange/20 transition-all"></div>
+<div>
+<div class="w-12 h-12 rounded-xl bg-neutral-900 border border-neutral-700 flex items-center justify-center text-brand-orange mb-6 group-hover:scale-110 transition-transform">
+<!-- Microphone / Podcast icon -->
+<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class=""></path></svg>
+</div>
+<h3 class="font-heading font-bold text-xl text-white group-hover:text-brand-orange transition-colors">
+              EDICIÓN DE PODCAST
+            </h3>
+<p class="text-neutral-400 text-sm mt-3 leading-relaxed">
+              Cortes multicámara automáticos o manuales, ecualización y limpieza de audio, inserción de clips de apoyo y extracción de micro-cápsulas para redes.
+            </p>
+</div>
+<div class="mt-6 pt-4 border-t border-neutral-900 flex items-center justify-between text-xs font-mono text-neutral-500">
+<span class="">AUDIO &amp; MULTICÁMARA</span>
+<span class="text-brand-orange font-bold">05</span>
+</div>
+</div>
+<!-- Service 6: Color & Motion -->
+<div class="group p-8 rounded-2xl bg-brand-card border border-neutral-800/80 hover:border-brand-orange transition-all duration-300 relative overflow-hidden flex flex-col justify-between">
+<div class="absolute top-0 right-0 w-24 h-24 bg-brand-red/5 rounded-full blur-2xl group-hover:bg-brand-red/20 transition-all"></div>
+<div>
+<div class="w-12 h-12 rounded-xl bg-neutral-900 border border-neutral-700 flex items-center justify-center text-brand-red mb-6 group-hover:scale-110 transition-transform">
+<!-- Sliders / Color Grading icon -->
+<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<h3 class="font-heading font-bold text-xl text-white group-hover:text-brand-orange transition-colors">
+              COLOR GRADING &amp; FX
+            </h3>
+<p class="text-neutral-400 text-sm mt-3 leading-relaxed">
+              Tratamiento de color cinematográfico (LUTs personalizados, corrección primaria y secundaria), efectos de sonido inmersivos (SFX) y motion graphics.
+            </p>
+</div>
+<div class="mt-6 pt-4 border-t border-neutral-900 flex items-center justify-between text-xs font-mono text-neutral-500">
+<span class="">POSTPRODUCCIÓN AVANZADA</span>
+<span class="text-brand-orange font-bold">06</span>
+</div>
+</div>
+</div>
+</section>
+<!-- ABOUT SECTION -->
+<section class="py-20 px-5 sm:px-8 max-w-7xl mx-auto" id="about">
+<div class="rounded-3xl border border-neutral-800 bg-brand-card/90 p-8 sm:p-12 lg:p-16 relative overflow-hidden">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+<!-- Image Container (Left on desktop, Top on mobile) -->
+<div class="lg:col-span-5 flex flex-col items-center">
+<div class="relative w-full max-w-md aspect-[4/5] rounded-2xl overflow-hidden border-2 border-neutral-800 group shadow-glow-orange">
+<!-- Placeholder profile picture: PROFILE_IMAGE -->
+<img id="profileImage" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2K6Nn6k670fVUc2zQRggcOE6C6bk31asfkOhVcF3l5BfzmUwcyB9k6gQfQjwYyScLkcqvjPTBiVaK86y_WA1zPh1zHdK0CXywXJIn83wq7g-EZYdrgkbenwaRaXeFEKCgnaQm0j_AAgA2vp71flpX7hjT1nVW77jFAfwIxS5Pmr6eB1mukvnKKS1oAwoqaCyIsKV1l6MTfDan4D18djGb1-6g9fI7tZ2nKnWe-7puS635KK7W-6eKDNw4tDtnBWiZMCI" alt="Gustav - Editor &amp; Productor Audiovisual" class="w-full h-full object-contain object-top filter contrast-110 saturate-110 group-hover:scale-105 transition-transform duration-500 pt-4" loading="lazy">
+<div class="absolute inset-0 bg-gradient-to-t from-brand-black via-transparent to-transparent"></div>
+<!-- Badge overlay -->
+<div class="absolute bottom-4 left-4 right-4 p-4 rounded-xl bg-black/80 backdrop-blur-md border border-neutral-800 flex items-center justify-between">
+<div>
+<h4 class="font-heading font-bold text-white text-base">GUSTAVO ADOLFO LÓPEZ</h4>
+<p class="text-[11px] font-mono text-brand-orange">CREADOR AUDIOVISUAL</p>
+</div>
+<span class="w-3 h-3 rounded-full bg-emerald-500 animate-pulse" title="Disponible para contratación"></span>
+</div>
+</div>
+<!-- Software Tech Stack badges -->
+
+</div>
+<!-- Text Presentation (Right on desktop, Bottom on mobile) -->
+<div class="lg:col-span-7 flex flex-col items-start">
+<span class="font-mono text-xs uppercase tracking-widest text-brand-orange">CONÓCEME</span>
+<h2 class="font-heading font-extrabold text-3xl sm:text-5xl uppercase tracking-tight text-white mt-1">
+              SOBRE MÍ
+            </h2>
+<p class="mt-6 text-lg sm:text-xl text-neutral-200 font-medium leading-relaxed">
+              "Soy Gustav, editor y productor audiovisual apasionado por transformar imágenes, sonidos e ideas en contenido que conecte genuinamente con las personas."
+            </p>
+<p class="mt-4 text-neutral-400 leading-relaxed text-sm sm:text-base">
+              Llevo más de 6 años explorando las fronteras del lenguaje audiovisual. Mi trabajo no se limita a cortar clips y sincronizarlos con música: estudio el comportamiento de la audiencia, la psicología del ritmo y el impacto del color para asegurar que cada segundo retenga y emocione.
+            </p>
+<p class="mt-4 text-neutral-400 leading-relaxed text-sm sm:text-base">
+              He colaborado con marcas, agencias, streamers, creadores de contenido y empresas internacionales, entregando producciones optimizadas para conversión, reputación de marca o viralidad digital.
+            </p>
+<!-- Key attributes -->
+<div class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
+<div class="p-4 rounded-xl bg-neutral-950/80 border border-neutral-800/80">
+<div class="font-heading font-bold text-white text-base flex items-center gap-2">
+<span class="text-brand-orange">⚡</span> Narrativa y Ritmo
+                </div>
+<p class="text-xs text-neutral-400 mt-1">Estructuras narrativas que eliminan el aburrimiento y retienen la atención.</p>
+</div>
+<div class="p-4 rounded-xl bg-neutral-950/80 border border-neutral-800/80">
+<div class="font-heading font-bold text-white text-base flex items-center gap-2">
+<span class="text-brand-red">🎯</span> Enfoque en Conversión
+                </div>
+<p class="text-xs text-neutral-400 mt-1">Videos diseñados con objetivos claros: ventas, reproducciones o posicionamiento.</p>
+</div>
+</div>
+<!-- Action buttons -->
+<div class="mt-8 flex flex-wrap gap-4">
+<a class="px-6 py-3 rounded-lg font-heading font-bold text-xs uppercase tracking-wider text-white red-orange-grad hover:shadow-glow-orange transition-all" href="#contact">
+                INICIAR CONVERSACIÓN
+              </a>
+<a class="px-6 py-3 rounded-lg font-heading font-bold text-xs uppercase tracking-wider text-neutral-300 bg-neutral-900 border border-neutral-800 hover:border-brand-orange transition-all flex items-center gap-2" href="https://wa.me/51943604589?text=Hola%20Gustav,%20vi%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20consultar%20sobre%20un%20proyecto%20audiovisual." rel="noopener noreferrer" target="_blank">
+<!-- WhatsApp SVG -->
+<svg class="w-4 h-4 text-emerald-400 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z" class=""></path></svg>
+<span class="">CHATEAR POR WHATSAPP</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section><section class="py-20 px-5 sm:px-8 max-w-7xl mx-auto relative" id="galeria">
+  <div class="text-center max-w-3xl mx-auto mb-14">
+    <div class="inline-flex items-center gap-2 mb-3">
+      <span class="w-2 h-2 rounded-full bg-brand-red animate-pulse"></span>
+      <span class="font-mono text-xs uppercase tracking-widest text-brand-orange">// GALERIA AUDIOVISUAL</span>
+    </div>
+    <h2 class="font-heading font-extrabold text-3xl sm:text-5xl uppercase tracking-tight text-white mt-1">CONOCIMIENTO Y EXPERIENCIA COMPROBABLE</h2>
+    
+  </div>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <!-- Gallery Item 1 -->
+    <div class="group relative rounded-2xl overflow-hidden bg-brand-card border border-neutral-800/80 hover:border-brand-orange transition-all duration-300 hover:shadow-glow-card cursor-pointer flex flex-col justify-between">
+      <div class="relative aspect-video sm:aspect-[4/3] w-full overflow-hidden bg-neutral-950">
+        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvxNQczz7k2-SZTy9dzMHN_RVzG2cqldbo8-Ubn481urJBAapT2RhbW5SaNvtH1XcIGCugX-odfIBNGhikGDKY5Ob6V9MK6uka_HbY23IkJ2LL7zt7OJFQWennIiPBpIXnee2zjV_S4388I-Wsewr4r1UZs_jN79EX7v65SXD7_IB-AIc0QhO5ROt1Dq28pxslgFaQoBbDh4BzzQ6jI1NL7-B6k6UTqW7uDjFQ0LnjMZGQPtKYc7JzFCAac3XigLSy9kOtblDXo1ho5q0" alt="Cámara Cinema Rig y Ópticas Anamórficas" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90" loading="lazy">
+        <div class="absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/30 to-transparent"></div>
+        <div class="absolute top-3 left-3">
+          
+        </div>
+        <div class="absolute bottom-3 left-3 right-3">
+          <h3 class="font-heading font-bold text-base text-white group-hover:text-brand-orange transition-colors">CERTIFICADO PRODUCCIÓN EN TV</h3>
+          
+        </div>
+      </div>
+    </div>
+
+    <!-- Gallery Item 2 -->
+    <div class="group relative rounded-2xl overflow-hidden bg-brand-card border border-neutral-800/80 hover:border-brand-red transition-all duration-300 hover:shadow-glow-red cursor-pointer flex flex-col justify-between">
+      <div class="relative aspect-video sm:aspect-[4/3] w-full overflow-hidden bg-neutral-950">
+        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5VD2jXQ7o5dDMj4An9VLNKjPKro3zEz2nXThGoIWAETY53IjwWpGOrVmRFuMW0AP7CYoYGErsLxM9p0SjgYFHECc4y1Jjgy6q0-0gF71_r_kFg7vJTp11Cx_tkuoGwMQXXP1pE0RgyAC8QVk5Du317niGBJUpcOcgHyu-nlwiCk9yjyMQ4jgf75r2tgwGsk_fecxZl4HsYnN4necoSP2SNE4vhFELNWt8x59G0PpyIdPuyWe4KtRuFrkwx-vCU5n90PcoVKQlzB-YZ_0" alt="Suite de Color Grading y Monitoreo HDR" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90" loading="lazy">
+        <div class="absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/30 to-transparent"></div>
+        <div class="absolute top-3 left-3">
+          
+        </div>
+        <div class="absolute bottom-3 left-3 right-3">
+          
+          
+        </div>
+      </div>
+    </div>
+
+    <!-- Gallery Item 3 -->
+    <div class="group relative rounded-2xl overflow-hidden bg-brand-card border border-neutral-800/80 hover:border-brand-orange transition-all duration-300 hover:shadow-glow-card cursor-pointer flex flex-col justify-between">
+      <div class="relative aspect-video sm:aspect-[4/3] w-full overflow-hidden bg-neutral-950">
+        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdLbtI_PXQxlbvCZD0mUjs2yDcQOHhncdkxWmygMZVNJEljXdqDrWM91SckM3anj-sJGSQGh_uL-jdT44EcJQyRyHH_Ab1gUkMFWm5_gyyIvE_7586lfCrftsLQMNAfpZoXhlE6uOVP11vdSk3hEc89ElUiROsayiRr9dkHF6SIvHND7OAmnx2MYZcTW6NePp5LNVbY9QCmb-Pd97VV4cLXD3z6gNpMres5HZeWwhwHkHyOlvEvfh6q8rwVHAqrvS_l3fqUAgwPFt2j98" alt="Dirección de Actores y Puesta en Escena" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90" loading="lazy">
+        <div class="absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/30 to-transparent"></div>
+        <div class="absolute top-3 left-3">
+          
+        </div>
+        <div class="absolute bottom-3 left-3 right-3">
+          <h3 class="font-heading font-bold text-base text-white group-hover:text-brand-orange transition-colors">CERTIFICADO PRODUCCIÓN RADIAL</h3>
+          
+        </div>
+      </div>
+    </div>
+
+    <!-- Gallery Item 4 -->
+    <div class="group relative rounded-2xl overflow-hidden bg-brand-card border border-neutral-800/80 hover:border-brand-red transition-all duration-300 hover:shadow-glow-red cursor-pointer flex flex-col justify-between">
+      <div class="relative aspect-video sm:aspect-[4/3] w-full overflow-hidden bg-neutral-950">
+        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPCErVE3tk5PFGCETQJnr6LsqiAMmxviJqaPlJE-Id_AGzrwGtzaCKNkpzoVM44JT1hSG6KgdywJQmIyb3RSACL7StKynVL3zSdbLdOvTvX4dmBB4viCnjP7VzPsVoVokGzeYxUc7oUa0mCLz128cNy8y7gJ4x3FJE1QKQPymR0pYho7Sq0tNbnLrUFOwgE1t4-MahCxzA3bgtv2W8IA3frFc2-NQMOaiUot8QG_ZUa5ABIIJUP6A_JU87yASRXgiLeiZ3b7abUIOEHRY" alt="Grabación y Tratamiento de Sonido Inmersivo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90" loading="lazy">
+        <div class="absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/30 to-transparent"></div>
+        <div class="absolute top-3 left-3">
+          <span class="px-2.5 py-1 rounded-md bg-black/80 backdrop-blur-md border border-neutral-700 text-[10px] font-mono font-bold tracking-wider text-brand-red uppercase">
+            intros dinamicas</span>
+        </div>
+        <div class="absolute bottom-3 left-3 right-3">
+          <h3 class="font-heading font-bold text-base text-white group-hover:text-brand-orange transition-colors">PODCAST DEMENTES SIN FILTROS</h3>
+          
+        </div>
+      </div>
+    </div>
+
+    <!-- Gallery Item 5 -->
+    <div class="group relative rounded-2xl overflow-hidden bg-brand-card border border-neutral-800/80 hover:border-brand-orange transition-all duration-300 hover:shadow-glow-card cursor-pointer flex flex-col justify-between">
+      <div class="relative aspect-video sm:aspect-[4/3] w-full overflow-hidden bg-neutral-950">
+        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEf6FnL5etLS5kAsnA7w8rZNoBp2nrFG60zHGQ9u4BDmDw9vRAkiEmo6ceMSoV4vDPsGG0LNxGKI4UHoQ9OXf3fKZIfFlODImVGJ2w2Ku6G-MVmc-4tN2RrIfrn4w_0Hi9XP2kDUhK5sgb5OVGQxC_65rJanW92h6P5EyQmByKtnGhGGBgtKYCb0UbRPFSbTQGWbD9eeCLvxZrVH9cG-rsxLU9AKy8HT0I6pcoCMqxs0aCpfRNkR1XZr6oysPwxuHsCKFc-RgFHOPyAKo" alt="Iluminación Escénica en Rodaje Comercial" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90" loading="lazy">
+        <div class="absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/30 to-transparent"></div>
+        <div class="absolute top-3 left-3">
+          <span class="px-2.5 py-1 rounded-md bg-black/80 backdrop-blur-md border border-neutral-700 text-[10px] font-mono font-bold tracking-wider text-brand-orange uppercase">
+            PODCAST</span>
+        </div>
+        <div class="absolute bottom-3 left-3 right-3">
+          <h3 class="font-heading font-bold text-base text-white group-hover:text-brand-orange transition-colors">DEMENTES SIN FILTROS</h3>
+          <p class="text-[11px] font-mono text-neutral-400 mt-0.5">PRODUCCIÓN Y EDICIÓN</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gallery Item 6 -->
+    <div class="group relative rounded-2xl overflow-hidden bg-brand-card border border-neutral-800/80 hover:border-brand-red transition-all duration-300 hover:shadow-glow-red cursor-pointer flex flex-col justify-between">
+      <div class="relative aspect-video sm:aspect-[4/3] w-full overflow-hidden bg-neutral-950">
+        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDavOg7QK8EH2IXO1soF1vbe8PSmAHZiXLwVXhaPs6t6dpRe1zhicnirdAI20dlzAvqMPE6xBpZmHfFNxwWxEi_opyiFswN4hwD10-8YG6toeEcyeBK9lyGgfDQXWv7W1W_iSr7Cp77yKiVrxjP6rvdg8TUI7G_E8vnn9Jk1O6oriCFl_2rGdv6kyamm_7FQsgOZEAH_iLp3YFSocITAqARYN51-KZLUgjvjpTLS8wHjXXNs7u_Hr16yZAWbo0XVdcwznUpMCXY9PUlEJ4" alt="Composición VFX y Motion Graphics" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90" loading="lazy">
+        <div class="absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/30 to-transparent"></div>
+        <div class="absolute top-3 left-3">
+          <span class="px-2.5 py-1 rounded-md bg-black/80 backdrop-blur-md border border-neutral-700 text-[10px] font-mono font-bold tracking-wider text-brand-red uppercase">
+            VIDEO MUESTRA</span>
+        </div>
+        <div class="absolute bottom-3 left-3 right-3">
+          <h3 class="font-heading font-bold text-base text-white group-hover:text-brand-orange transition-colors">VIDEO REFLEXIVO</h3>
+          <p class="text-[11px] font-mono text-neutral-400 mt-0.5">PRODUCCIÓN Y EDICIÓN</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- WORK PROCESS SECTION -->
+<section class="py-20 px-5 sm:px-8 max-w-7xl mx-auto" id="process">
+<div class="text-center max-w-3xl mx-auto mb-16">
+<span class="font-mono text-xs uppercase tracking-widest text-brand-orange">METODOLOGÍA CLARA</span>
+<h2 class="font-heading font-extrabold text-3xl sm:text-5xl uppercase tracking-tight text-white mt-2">
+          DEL CONCEPTO AL VIDEO FINAL
+        </h2>
+<p class="text-neutral-400 text-sm sm:text-base mt-4">
+          Un flujo estructurado en 4 fases para garantizar que cada entrega cumpla tus expectativas de tiempo, estética y resultados.
+        </p>
+</div>
+<!-- Process timeline: Horizontal on desktop, Vertical on mobile -->
+<div class="relative">
+<!-- Connecting Line for desktop -->
+<div class="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 red-orange-grad -translate-y-1/2 z-0 opacity-40"></div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
+<!-- Step 1 -->
+<div class="p-6 rounded-2xl bg-brand-card border border-neutral-800 hover:border-brand-red transition-all flex flex-col justify-between group">
+<div>
+<div class="flex items-center justify-between mb-4">
+<span class="font-heading font-extrabold text-3xl text-brand-red group-hover:scale-110 transition-transform">01</span>
+<span class="px-2 py-0.5 rounded bg-brand-red/10 text-brand-red font-mono text-[10px] tracking-wider uppercase">ETAPA INICIAL</span>
+</div>
+<h3 class="font-heading font-bold text-xl text-white">IDEA &amp; BRIEF</h3>
+<p class="text-neutral-400 text-sm mt-3 leading-relaxed">
+                Entendemos el objetivo, concepto, tono, plataforma destino y la audiencia a la que quieres impactar.
+              </p>
+</div>
+<div class="mt-6 pt-4 border-t border-neutral-900 font-mono text-xs text-neutral-500">
+              ✓ Definición de estilo y guion
+            </div>
+</div>
+<!-- Step 2 -->
+<div class="p-6 rounded-2xl bg-brand-card border border-neutral-800 hover:border-brand-orange transition-all flex flex-col justify-between group">
+<div class="">
+<div class="flex items-center justify-between mb-4">
+<span class="font-heading font-extrabold text-3xl text-brand-orange group-hover:scale-110 transition-transform">02</span>
+<span class="px-2 py-0.5 rounded bg-brand-orange/10 text-brand-orange font-mono text-[10px] tracking-wider uppercase">DESARROLLO</span>
+</div>
+<h3 class="font-heading font-bold text-xl text-white">PRODUCCIÓN</h3>
+<p class="text-neutral-400 text-sm mt-3 leading-relaxed">
+                Organizamos, seleccionamos y desarrollamos el material grabado o preparamos el rodaje audiovisual.
+              </p>
+</div>
+<div class="mt-6 pt-4 border-t border-neutral-900 font-mono text-xs text-neutral-500">
+              ✓ Captura y selección de tomas
+            </div>
+</div>
+<!-- Step 3 -->
+<div class="p-6 rounded-2xl bg-brand-card border border-neutral-800 hover:border-brand-vivid transition-all flex flex-col justify-between group">
+<div>
+<div class="flex items-center justify-between mb-4">
+<span class="font-heading font-extrabold text-3xl text-brand-vivid group-hover:scale-110 transition-transform">03</span>
+<span class="px-2 py-0.5 rounded bg-brand-vivid/10 text-brand-vivid font-mono text-[10px] tracking-wider uppercase">POSTPRODUCCIÓN</span>
+</div>
+<h3 class="font-heading font-bold text-xl text-white">EDICIÓN</h3>
+<p class="text-neutral-400 text-sm mt-3 leading-relaxed">
+                Construimos ritmo, narrativa, color grading cinematográfico, efectos de sonido y diseño de movimiento.
+              </p>
+</div>
+<div class="mt-6 pt-4 border-t border-neutral-900 font-mono text-xs text-neutral-500">
+              ✓ Montaje, FX y color grading
+            </div>
+</div>
+<!-- Step 4 -->
+<div class="p-6 rounded-2xl bg-brand-card border border-neutral-800 hover:border-emerald-500 transition-all flex flex-col justify-between group">
+<div>
+<div class="flex items-center justify-between mb-4">
+<span class="font-heading font-extrabold text-3xl text-emerald-400 group-hover:scale-110 transition-transform">04</span>
+<span class="px-2 py-0.5 rounded bg-emerald-400/10 text-emerald-400 font-mono text-[10px] tracking-wider uppercase">FINAL</span>
+</div>
+<h3 class="font-heading font-bold text-xl text-white">ENTREGA</h3>
+<p class="text-neutral-400 text-sm mt-3 leading-relaxed">
+                Ronda de revisión, optimización de códecs y exportación en alta resolución listo para publicar.
+              </p>
+</div>
+<div class="mt-6 pt-4 border-t border-neutral-900 font-mono text-xs text-neutral-500">
+              ✓ Master final 4K/FullHD
+            </div>
+</div>
+</div>
+</div>
+</section>
+<!-- FINAL CTA HEROIC BANNER -->
+<section class="py-16 px-5 sm:px-8 max-w-7xl mx-auto">
+<div class="relative rounded-3xl overflow-hidden border border-brand-orange/40 bg-brand-dark p-10 sm:p-16 lg:p-20 text-center shadow-glow-orange">
+<!-- Background elements -->
+<div class="absolute inset-0 bg-gradient-to-r from-brand-red/20 via-brand-orange/20 to-transparent pointer-events-none"></div>
+<div class="absolute -top-32 -left-32 w-80 h-80 bg-brand-red/30 rounded-full blur-3xl pointer-events-none"></div>
+<div class="absolute -bottom-32 -right-32 w-80 h-80 bg-brand-orange/30 rounded-full blur-3xl pointer-events-none"></div>
+<div class="relative z-10 max-w-3xl mx-auto flex flex-col items-center">
+<span class="font-mono text-xs uppercase tracking-widest text-brand-orange">¿LISTO PARA COMENZAR?</span>
+<h2 class="font-heading font-extrabold text-3xl sm:text-5xl lg:text-6xl uppercase tracking-tight text-white mt-3">
+            ¿TIENES UNA IDEA? <br>
+<span class="text-gradient">HAGÁMOSLA VIDEO.</span>
+</h2>
+<p class="mt-6 text-base sm:text-lg text-neutral-300 max-w-xl">
+            "Cuéntame tu proyecto y trabajemos juntos para convertirlo en contenido que destaque y genere impacto."
+          </p>
+<div class="mt-10 flex flex-col sm:flex-row items-center gap-4">
+<a class="w-full sm:w-auto px-8 py-4 rounded-xl font-heading font-bold text-sm tracking-wider uppercase text-white red-orange-grad hover:shadow-glow-red hover:-translate-y-1 transition-all" href="#contact">
+              CONTACTARME AHORA
+            </a>
+<a class="w-full sm:w-auto px-8 py-4 rounded-xl font-heading font-bold text-sm tracking-wider uppercase text-neutral-200 bg-neutral-900 border border-neutral-700 hover:border-emerald-500 transition-all flex items-center justify-center gap-2" href="https://wa.me/51943604589?text=Hola%20Gustav,%20vi%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20consultar%20sobre%20un%20proyecto%20audiovisual." rel="noopener noreferrer" target="_blank">
+<svg class="w-4 h-4 text-emerald-400 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"></path></svg>
+<span class="">WHATSAPP DIRECTO</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- CONTACT SECTION -->
+<section class="py-20 px-5 sm:px-8 max-w-7xl mx-auto" id="contact">
+<div class="max-w-3xl mx-auto flex flex-col items-center text-center">
+<div class="w-full flex flex-col items-center">
+<span class="font-mono text-xs uppercase tracking-widest text-brand-orange">CONEXIÓN DIRECTA</span>
+<h2 class="font-heading font-extrabold text-4xl sm:text-5xl uppercase tracking-tight text-white mt-1">
+              HABLEMOS
+            </h2>
+<p class="text-neutral-400 text-sm sm:text-base mt-4 leading-relaxed max-w-xl">
+              "¿Tienes un proyecto audiovisual en mente? Escríbeme y cuéntame qué necesitas. Te responderé en menos de 24 horas."
+            </p>
+<div class="mt-8 flex flex-col sm:flex-row gap-5 w-full justify-center">
+<!-- WhatsApp direct card -->
+<a class="flex-1 p-5 rounded-xl bg-brand-card border border-neutral-800 hover:border-emerald-500 transition-all flex items-center gap-4 group text-left" href="https://wa.me/51943604589?text=Hola%20Gustav,%20vi%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20consultar%20sobre%20un%20proyecto%20audiovisual." rel="noopener noreferrer" target="_blank">
+<div class="w-12 h-12 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-400 group-hover:scale-110 transition-transform flex-shrink-0">
+<svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"></path></svg>
+</div>
+<div>
+<div class="text-[11px] font-mono text-neutral-400 uppercase">WHATSAPP OFICIAL</div>
+<div class="font-heading font-bold text-white text-base">+51 943 604 589</div>
+</div>
+</a>
+<!-- Email Card -->
+<a class="flex-1 p-5 rounded-xl bg-brand-card border border-neutral-800 hover:border-brand-orange transition-all flex items-center gap-4 group text-left" href="mailto:studiosgustav@gmail.com">
+<div class="w-12 h-12 rounded-lg bg-brand-orange/10 flex items-center justify-center text-brand-orange group-hover:scale-110 transition-transform flex-shrink-0">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<div>
+<div class="text-[11px] font-mono text-neutral-400 uppercase">CORREO ELECTRÓNICO</div>
+<div class="font-heading font-bold text-white text-base">studiosgustav@gmail.com</div>
+</div>
+</a>
+</div>
+<!-- Location / Timezone Card -->
+<div class="mt-5 p-5 rounded-xl bg-brand-card border border-neutral-800 flex items-center justify-center gap-4 w-full text-center">
+<div class="w-12 h-12 rounded-lg bg-brand-red/10 flex items-center justify-center text-brand-red flex-shrink-0">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<div class="text-left">
+<div class="text-[11px] font-mono text-neutral-400 uppercase">UBICACIÓN &amp; COBERTURA</div>
+<div class="font-heading font-bold text-white text-base">Lima, Perú • Proyectos Globales Remotos</div>
+</div>
+</div>
+</div>
+<!-- Social Links Grid -->
+<div class="mt-8 pt-6 border-t border-neutral-900 w-full flex flex-col items-center">
+<span class="text-xs font-mono text-neutral-500 uppercase">SÍGUEME EN REDES:</span>
+<div class="flex items-center justify-center gap-3 mt-3">
+<!-- Instagram -->
+<a class="p-3 rounded-lg bg-neutral-900 border border-neutral-800 text-neutral-400 hover:text-white hover:border-brand-orange transition-colors" href="https://instagram.com" rel="noopener noreferrer" target="_blank" title="Instagram">
+<svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg>
+</a>
+<!-- TikTok -->
+<a class="p-3 rounded-lg bg-neutral-900 border border-neutral-800 text-neutral-400 hover:text-white hover:border-brand-orange transition-colors" href="https://tiktok.com" rel="noopener noreferrer" target="_blank" title="TikTok">
+<svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.04-.1z"></path></svg>
+</a>
+<!-- YouTube -->
+<a class="p-3 rounded-lg bg-neutral-900 border border-neutral-800 text-neutral-400 hover:text-white hover:border-brand-orange transition-colors" href="https://youtube.com" rel="noopener noreferrer" target="_blank" title="YouTube">
+<svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"></path></svg>
+</a>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- FLOATING WHATSAPP BUTTON (Desktop & Mobile) -->
+<aside class="fixed bottom-6 right-6 z-40">
+<a aria-label="Contactar por WhatsApp a Gustav Studios" class="group flex items-center gap-3 px-4 py-3 rounded-full bg-[#25D366] text-black font-heading font-bold text-xs tracking-wider uppercase shadow-xl hover:shadow-[0_0_25px_rgba(37,211,102,0.6)] hover:-translate-y-1 transition-all duration-300" href="https://wa.me/51943604589?text=Hola%20Gustav,%20vi%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20consultar%20sobre%20un%20proyecto%20audiovisual." rel="noopener noreferrer" target="_blank">
+<!-- WhatsApp Icon -->
+<svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+<path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"></path>
+</svg>
+<span class="hidden sm:inline-block">HABLEMOS POR WHATSAPP</span>
+<span class="sm:hidden">WHATSAPP</span>
+</a>
+</aside>
+<!-- FULLSCREEN VIDEO MODAL PLAYER -->
+<div class="fixed inset-0 z-[90] bg-black/95 backdrop-blur-2xl flex items-center justify-center p-4 sm:p-6 transition-opacity duration-300 opacity-0 pointer-events-none" id="videoModal">
+<div class="relative w-full max-w-5xl rounded-2xl border border-neutral-800 bg-brand-card overflow-hidden shadow-2xl flex flex-col">
+<!-- Modal Header -->
+<div class="p-4 sm:p-5 border-b border-neutral-800 flex items-center justify-between bg-neutral-950">
+<div>
+<span class="font-mono text-xs uppercase tracking-widest text-brand-orange" id="modalCategory">PODCAST</span>
+<h4 class="font-heading font-bold text-lg sm:text-xl text-white" id="modalTitle">Episodio 42 — The Founder's Mindset</h4>
+</div>
+<button aria-label="Cerrar modal" class="p-2 rounded-lg bg-neutral-900 border border-neutral-700 text-neutral-300 hover:text-white hover:border-brand-red transition-colors flex items-center gap-1 text-xs font-mono" onclick="closeVideoModal()">
+<span class="">CERRAR</span>
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+</div>
+<!-- Player Container (Responsive 16:9) -->
+<div class="relative aspect-video w-full bg-black flex items-center justify-center">
+<div class="w-full h-full flex items-center justify-center" id="videoContainer"></div>
+</div>
+<!-- Modal Metadata Details Footer -->
+<div class="p-5 sm:p-6 bg-brand-dark flex flex-col sm:flex-row justify-between gap-4 border-t border-neutral-900">
+<div class="space-y-1 max-w-lg">
+<p class="text-sm text-neutral-300 leading-relaxed" id="modalDescription">Edición multicámara de 3 planos con nivelación de audio broadcast LUFS -14, reducción de ruido iZotope y cortes automatizados para clipping.</p>
+</div>
+<div class="flex flex-wrap gap-4 text-xs font-mono text-neutral-400">
+<div>
+<span class="text-neutral-500 block">CLIENTE</span>
+<span class="text-white font-bold" id="modalClient">Founder Talks Pod</span>
+</div>
+<div>
+<span class="text-neutral-500 block">AÑO</span>
+<span class="text-white font-bold" id="modalYear">2025</span>
+</div>
+<div>
+<span class="text-neutral-500 block">DURACIÓN</span>
+<span class="text-white font-bold" id="modalDuration">45:10</span>
+</div>
+<div>
+<span class="text-neutral-500 block">SOFTWARE</span>
+<span class="text-brand-orange font-bold" id="modalSoftware">DaVinci Resolve Fairlight</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- FOOTER -->
+<footer class="border-t border-neutral-900 bg-brand-dark py-12 px-5 sm:px-8">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
+<!-- Brand in footer -->
+<div class="flex flex-col items-center md:items-start">
+<div class="flex items-center gap-2">
+<img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtHsJDsTjKlmcwDrTMAViwZBTegDb1Hpn4kpS0r-qTljsZOb9pgHCadixclHcb2pbyCa6_87Wvr922g1Dp-vJgYeBXU7dL9VWAZNteKEzGSteDyVaWfCrl49oBBvXOnVmx1jh7gqT8swJ5r05E3OXSQ6mBEjD97ni1N-2FBi8hPhWU1utBHZDZFKSfqsFxT2NfL2q6-YUu_VS9MIdr2RFuuUWhFSRpQbYez7EQanYVZ1GNHmUiy_VvETJSMXShElmPtrg" alt="Gustav Studios Logo" class="h-10 w-auto object-contain">
+<span class="font-heading font-extrabold text-xl tracking-tight text-white">
+            GUSTAV <span class="text-brand-orange">STUDIOS</span>
+</span>
+</div>
+<p class="text-xs uppercase font-mono tracking-widest text-neutral-500 mt-1">
+          Producción &amp; Edición de Videos
+        </p>
+</div>
+<!-- Footer navigation -->
+<div class="flex flex-wrap justify-center gap-6 text-xs font-medium text-neutral-400">
+<a class="hover:text-brand-orange transition-colors" href="#hero">Inicio</a>
+<a class="hover:text-brand-orange transition-colors" href="#portfolio">Portafolio</a>
+<a class="hover:text-brand-orange transition-colors" href="#services">Servicios</a>
+<a class="hover:text-brand-orange transition-colors" href="#about">Sobre Mí</a>
+<a class="hover:text-brand-orange transition-colors" href="#galeria">Galería</a><a class="hover:text-brand-orange transition-colors" href="#process">Proceso</a>
+<a class="hover:text-brand-orange transition-colors" href="#contact">Contacto</a>
+</div>
+<!-- Legal & copyright -->
+<div class="text-center md:text-right text-xs font-mono text-neutral-500">
+<div class="">© 2026 GUSTAV STUDIOS — Producción y Edición de Videos</div>
+<div class="text-[11px] text-neutral-600 mt-1">Todos los derechos reservados. Diseñado para alto impacto audiovisual.</div>
+</div>
+</div>
+</footer>
+<!-- SCRIPT ARCHITECTURE: CENTRALIZED DATA & FUNCTIONALITY -->
+<script>
+    /* =========================================================================
+       1. CENTRALIZED PORTFOLIO DATA (Fácil de actualizar sin tocar componentes)
+       ========================================================================= */
+    const portfolioItems = [
+      {
+        id: 0,
+        title: "Reel Audiovisual 2026 — Master Cut",
+        category: "otros",
+        categoryLabel: "SHOWREEL",
+        description: "Compilación cinematográfica de trabajos de edición, ritmo acelerado, sound design y color grading de alta gama para proyectos internacionales.",
+        thumbnail: "https://images.unsplash.com/photo-1536240478700-b869070f9279?q=80&w=1000&auto=format&fit=crop",
+        videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-cinematic-night-street-in-tokyo-42938-large.mp4",
+        videoType: "mp4", // 'mp4', 'youtube', 'vimeo'
+        client: "Gustav Studios",
+        year: "2026",
+        duration: "01:45",
+        software: "Premiere Pro + DaVinci Resolve",
+        featured: true
+      },
+      {
+        id: 1,
+        title: "Campaña Urbana Nike x Apex",
+        category: "reels",
+        categoryLabel: "REELS INSTAGRAM",
+        description: "Edición dinámica con speed ramps, motion graphics y sincronización de beat musical de alta intensidad enfocado en conversión y engagement.",
+        thumbnail: "https://images.unsplash.com/photo-1518609878373-06d740f60d8b?q=80&w=800&auto=format&fit=crop",
+        videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-skater-performing-a-kickflip-in-slow-motion-41808-large.mp4",
+        videoType: "mp4",
+        client: "Urban Sports Lab",
+        year: "2026",
+        duration: "00:45",
+        software: "After Effects + Filmora 15",
+        featured: false
+      },
+      {
+        id: 2,
+        title: "TikTok Hook Viral — Finanzas para Creadores",
+        category: "shorts",
+        categoryLabel: "SHORTS / TIKTOK",
+        description: "Edición vertical 9:16 con subtítulos kinetic animados, b-rolls dinámicos y sonido asmr de teclados e interfaces. Superó 2.4M de reproducciones.",
+        thumbnail: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800&auto=format&fit=crop",
+        videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-hands-typing-on-a-glowing-keyboard-43187-large.mp4",
+        videoType: "mp4",
+        client: "FinCreator Media",
+        year: "2026",
+        duration: "00:58",
+        software: "Premiere Pro + CapCut Desktop",
+        featured: false
+      },
+      {
+        id: 3,
+        title: "Episodio 42 — The Founder's Mindset",
+        category: "podcast",
+        categoryLabel: "PODCAST",
+        description: "Edición multicámara de 3 planos con nivelación de audio broadcast LUFS -14, reducción de ruido iZotope y cortes automatizados para clipping.",
+        thumbnail: "https://images.unsplash.com/photo-1590602847861-f357a9332bbc?q=80&w=800&auto=format&fit=crop",
+        videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-radio-broadcaster-speaking-in-a-studio-41315-large.mp4",
+        videoType: "mp4",
+        client: "Founder Talks Pod",
+        year: "2025",
+        duration: "45:10",
+        software: "DaVinci Resolve Fairlight",
+        featured: false
+      },
+      {
+        id: 4,
+        title: "Spot Promocional Cyberpunk Festival",
+        category: "eventos",
+        categoryLabel: "EVENTOS",
+        description: "Aftermovie con gradación de color neón, efectos VHS distorsionados, sound design espacial y montaje al ritmo de música electrónica synthwave.",
+        thumbnail: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=800&auto=format&fit=crop",
+        videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-crowd-at-a-concert-with-stage-lights-42861-large.mp4",
+        videoType: "mp4",
+        client: "Neon Dreams Festival",
+        year: "2026",
+        duration: "02:15",
+        software: "Premiere + After Effects",
+        featured: false
+      },
+      {
+        id: 5,
+        title: "Lanzamiento App SaaS — Tech Showcase",
+        category: "social",
+        categoryLabel: "REDES SOCIALES",
+        description: "Video explicativo con mockups 3D, motion graphics en After Effects y ritmo fluido para campañas de captación en LinkedIn y Meta Ads.",
+        thumbnail: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop",
+        videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-screens-with-data-42937-large.mp4",
+        videoType: "mp4",
+        client: "CloudPulse Tech",
+        year: "2026",
+        duration: "01:10",
+        software: "After Effects + Premiere",
+        featured: false
+      },
+      {
+        id: 6,
+        title: "Videoclip Acústico — Luces de Medianoche",
+        category: "otros",
+        categoryLabel: "OTROS",
+        description: "Color grading cinematográfico estilo 35mm con grano orgánico de película, iluminación natural y montaje sensible basado en las emociones de la melodía.",
+        thumbnail: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=800&auto=format&fit=crop",
+        videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-musician-playing-acoustic-guitar-in-dark-room-41314-large.mp4",
+        videoType: "mp4",
+        client: "Indie Music Records",
+        year: "2025",
+        duration: "03:40",
+        software: "DaVinci Resolve Studio",
+        featured: false
+      }
+    ];
+
+    /* =========================================================================
+       2. PRELOADER ANIMATION
+       ========================================================================= */
+    window.addEventListener('load', () => {
+      const preloadBar = document.getElementById('preloadBar');
+      const preloadPercent = document.getElementById('preloadPercent');
+      const preloader = document.getElementById('preloader');
+      let progress = 0;
+
+      const interval = setInterval(() => {
+        progress += Math.floor(Math.random() * 25) + 15;
+        if (progress > 100) progress = 100;
+        preloadBar.style.width = `${progress}%`;
+        preloadPercent.innerText = `${progress}%`;
+
+        if (progress === 100) {
+          clearInterval(interval);
+          setTimeout(() => {
+            preloader.classList.add('opacity-0', 'pointer-events-none');
+            setTimeout(() => {
+              preloader.style.display = 'none';
+            }, 700);
+          }, 300);
+        }
+      }, 70);
+    });
+
+    /* =========================================================================
+       3. INTERACTIVE CURSOR FOR DESKTOP
+       ========================================================================= */
+    const cursorDot = document.getElementById('cursorDot');
+    const cursorOutline = document.getElementById('cursorOutline');
+
+    if (window.matchMedia('(pointer: fine)').matches) {
+      window.addEventListener('mousemove', (e) => {
+        const posX = e.clientX;
+        const posY = e.clientY;
+
+        cursorDot.style.left = `${posX}px`;
+        cursorDot.style.top = `${posY}px`;
+
+        cursorOutline.animate({
+          left: `${posX}px`,
+          top: `${posY}px`
+        }, { duration: 250, fill: 'forwards' });
+      });
+
+      // Hover glow expansion on interactive elements
+      document.querySelectorAll('a, button, input, select, textarea, .cursor-pointer').forEach(elem => {
+        elem.addEventListener('mouseenter', () => {
+          cursorOutline.style.transform = 'translate(-50%, -50%) scale(1.6)';
+          cursorOutline.style.borderColor = '#FF3200';
+          cursorDot.style.backgroundColor = '#FF0700';
+        });
+        elem.addEventListener('mouseleave', () => {
+          cursorOutline.style.transform = 'translate(-50%, -50%) scale(1)';
+          cursorOutline.style.borderColor = 'rgba(255, 92, 0, 0.4)';
+          cursorDot.style.backgroundColor = '#FF5C00';
+        });
+      });
+    }
+
+    /* =========================================================================
+       4. DYNAMIC NAVBAR SCROLL EFFECT
+       ========================================================================= */
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('bg-brand-black/90', 'backdrop-blur-md', 'py-3.5', 'border-neutral-800');
+        navbar.classList.remove('py-5', 'border-transparent');
+      } else {
+        navbar.classList.remove('bg-brand-black/90', 'backdrop-blur-md', 'py-3.5', 'border-neutral-800');
+        navbar.classList.add('py-5', 'border-transparent');
+      }
+    });
+
+    // Mobile Hamburger Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileDrawer = document.getElementById('mobileDrawer');
+    const menuIcon = document.getElementById('menuIcon');
+    const closeIcon = document.getElementById('closeIcon');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      const isOpen = !mobileDrawer.classList.contains('hidden');
+      if (isOpen) {
+        mobileDrawer.classList.add('hidden');
+        menuIcon.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
+      } else {
+        mobileDrawer.classList.remove('hidden');
+        menuIcon.classList.add('hidden');
+        closeIcon.classList.remove('hidden');
+      }
+    });
+
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileDrawer.classList.add('hidden');
+        menuIcon.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
+      });
+    });
+
+    /* =========================================================================
+       5. PORTFOLIO RENDERER & INTERACTIVE FILTER
+       ========================================================================= */
+    const portfolioGrid = document.getElementById('portfolioGrid');
+
+    function renderPortfolio(items) {
+      portfolioGrid.innerHTML = '';
+      
+      items.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'group relative rounded-2xl overflow-hidden bg-brand-card border border-neutral-800/90 hover:border-brand-orange transition-all duration-300 flex flex-col justify-between cursor-pointer hover:shadow-glow-card';
+        card.onclick = () => openVideoModal(item.id);
+
+        card.innerHTML = `
+          <div class="relative aspect-video w-full overflow-hidden bg-neutral-950">
+            <!-- Thumbnail with soft zoom -->
+            <img 
+              src="${item.thumbnail}" 
+              alt="${item.title}" 
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
+              loading="lazy"
+            >
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/20 to-transparent"></div>
+            
+            <!-- Play Button Hover Reveal -->
+            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+              <div class="w-14 h-14 rounded-full red-orange-grad flex items-center justify-center text-white shadow-glow-red transform scale-90 group-hover:scale-100 transition-transform">
+                <svg class="w-6 h-6 fill-current ml-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+            </div>
+
+            <!-- Top tags -->
+            <div class="absolute top-3 left-3">
+              <span class="px-2.5 py-1 rounded-md bg-black/80 backdrop-blur-md border border-neutral-700 text-[10px] font-mono font-bold tracking-wider text-brand-orange uppercase">
+                ${item.categoryLabel}
+              </span>
+            </div>
+
+            <div class="absolute top-3 right-3 font-mono text-[10px] text-neutral-300 bg-black/80 backdrop-blur-md px-2 py-0.5 rounded border border-neutral-800">
+              ${item.duration}
+            </div>
+          </div>
+
+          <!-- Card Body Details -->
+          <div class="p-5 flex flex-col justify-between flex-1">
+            <div>
+              <h3 class="font-heading font-bold text-lg text-white group-hover:text-brand-orange transition-colors line-clamp-1">
+                ${item.title}
+              </h3>
+              <p class="text-xs text-neutral-400 mt-2 line-clamp-2 leading-relaxed">
+                ${item.description}
+              </p>
+            </div>
+
+            <div class="mt-4 pt-3 border-t border-neutral-900/80 flex items-center justify-between text-[11px] font-mono text-neutral-500">
+              <span>Cliente: <strong class="text-neutral-300">${item.client}</strong></span>
+              <span class="text-brand-orange flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                Ver Video →
+              </span>
+            </div>
+          </div>
+        `;
+        portfolioGrid.appendChild(card);
+      });
+    }
+
+    // Initial render of all portfolio items
+    renderPortfolio(portfolioItems);
+
+    // Interactive filter function
+    function filterPortfolio(category) {
+      // Update UI active filter button
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        if (btn.getAttribute('data-cat') === category) {
+          btn.classList.add('bg-brand-red', 'text-white', 'border-brand-red');
+          btn.classList.remove('bg-neutral-900', 'text-neutral-300', 'border-neutral-800');
+        } else {
+          btn.classList.remove('bg-brand-red', 'text-white', 'border-brand-red');
+          btn.classList.add('bg-neutral-900', 'text-neutral-300', 'border-neutral-800');
+        }
+      });
+
+      // Filter data with smooth fade
+      portfolioGrid.classList.add('opacity-40');
+      setTimeout(() => {
+        if (category === 'all') {
+          renderPortfolio(portfolioItems);
+        } else {
+          const filtered = portfolioItems.filter(item => item.category === category);
+          renderPortfolio(filtered);
+        }
+        portfolioGrid.classList.remove('opacity-40');
+      }, 150);
+    }
+
+    /* =========================================================================
+       6. FULLSCREEN VIDEO MODAL SYSTEM (Support MP4, YouTube, Vimeo)
+       ========================================================================= */
+    const videoModal = document.getElementById('videoModal');
+    const videoContainer = document.getElementById('videoContainer');
+    const modalCategory = document.getElementById('modalCategory');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalDescription = document.getElementById('modalDescription');
+    const modalClient = document.getElementById('modalClient');
+    const modalYear = document.getElementById('modalYear');
+    const modalDuration = document.getElementById('modalDuration');
+    const modalSoftware = document.getElementById('modalSoftware');
+
+    function openVideoModal(itemId) {
+      const project = portfolioItems.find(item => item.id === itemId);
+      if (!project) return;
+
+      modalCategory.innerText = project.categoryLabel;
+      modalTitle.innerText = project.title;
+      modalDescription.innerText = project.description;
+      modalClient.innerText = project.client;
+      modalYear.innerText = project.year;
+      modalDuration.innerText = project.duration;
+      modalSoftware.innerText = project.software;
+
+      // Construct Player based on videoType
+      if (project.videoType === 'youtube') {
+        videoContainer.innerHTML = `
+          <iframe 
+            class="w-full h-full" 
+            src="${project.videoUrl}?autoplay=1&rel=0" 
+            title="${project.title}" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+          </iframe>
+        `;
+      } else if (project.videoType === 'vimeo') {
+        videoContainer.innerHTML = `
+          <iframe 
+            class="w-full h-full" 
+            src="${project.videoUrl}?autoplay=1" 
+            title="${project.title}" 
+            frameborder="0" 
+            allow="autoplay; fullscreen; picture-in-picture" 
+            allowfullscreen>
+          </iframe>
+        `;
+      } else {
+        // Direct MP4 or Local Video
+        videoContainer.innerHTML = `
+          <video 
+            id="activeModalVideo" 
+            class="w-full h-full object-contain" 
+            controls 
+            autoplay 
+            playsinline>
+            <source src="${project.videoUrl}" type="video/mp4">
+            Tu navegador no soporta reproducción de video HTML5.
+          </video>
+        `;
+      }
+
+      // Show Modal
+      videoModal.classList.remove('opacity-0', 'pointer-events-none');
+      document.body.classList.add('overflow-hidden');
+    }
+
+    function closeVideoModal() {
+      videoModal.classList.add('opacity-0', 'pointer-events-none');
+      videoContainer.innerHTML = ''; // Stop video playback immediately
+      document.body.classList.remove('overflow-hidden');
+    }
+
+    // Close on Escape or click outside
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeVideoModal();
+    });
+
+    videoModal.addEventListener('click', (e) => {
+      if (e.target === videoModal) closeVideoModal();
+    });
+
+    /* =========================================================================
+       7. CONTACT FORM VALIDATION & FEEDBACK
+       ========================================================================= */
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('formName').value.trim();
+      const email = document.getElementById('formEmail').value.trim();
+      const projectType = document.getElementById('formProjectType').value;
+      const message = document.getElementById('formMessage').value.trim();
+      const successBox = document.getElementById('formSuccess');
+      const errorBox = document.getElementById('formError');
+      const submitBtn = document.getElementById('formSubmitBtn');
+
+      // Basic validation
+      if (!name || !email || !projectType || !message || !email.includes('@')) {
+        errorBox.classList.remove('hidden');
+        successBox.classList.add('hidden');
+        return;
+      }
+
+      errorBox.classList.add('hidden');
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = `
+        <svg class="animate-spin h-5 w-5 text-white" fill="none" viewBox="0 0 24 24">
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
+        </svg>
+        <span>PROCESANDO...</span>
+      `;
+
+      // Simular envío rápido o conexión backend
+      setTimeout(() => {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = `
+          <span>ENVIAR MENSAJE</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
+        `;
+        successBox.classList.remove('hidden');
+        document.getElementById('contactForm').reset();
+      }, 800);
+    }
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body></html>

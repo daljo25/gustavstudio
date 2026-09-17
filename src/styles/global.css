@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&family=Space+Grotesk:wght@500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-brand-black: #050505;
+  --color-brand-dark: #0a0a0a;
+  --color-brand-card: #111111;
+  --color-brand-border: #222222;
+  --color-brand-red: #ff0700;
+  --color-brand-orange: #ff5c00;
+  --color-brand-vivid: #ff3200;
+  --color-brand-muted: #888888;
+
+  --font-sans: 'Inter', sans-serif;
+  --font-heading: 'Space Grotesk', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --shadow-glow-red: 0 0 30px -5px rgba(255, 7, 0, 0.45);
+  --shadow-glow-orange: 0 0 30px -5px rgba(255, 92, 0, 0.45);
+  --shadow-glow-card: 0 10px 40px -10px rgba(255, 50, 0, 0.15);
+}
+
+:root {
+  color-scheme: dark;
+  --brand-bg: #050505;
+  --brand-card: #111111;
+  --brand-red: #ff0700;
+  --brand-orange: #ff5c00;
+  --brand-muted: #888888;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--brand-bg);
+  font-family: 'Inter', sans-serif;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+::selection {
+  background: rgba(255, 92, 0, 0.9);
+  color: white;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #080808;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #262626;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ff3200;
+}
+
+.cyber-grid {
+  background-size: 40px 40px;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+.radial-flare {
+  background: radial-gradient(circle at 50% 30%, rgba(255, 50, 0, 0.18) 0%, rgba(255, 7, 0, 0.05) 45%, transparent 75%);
+}
+
+.red-orange-grad {
+  background: linear-gradient(135deg, #ff0700 0%, #ff5c00 100%);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #ffffff 20%, #ff5c00 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.border-gradient {
+  border-image: linear-gradient(to bottom right, #ff0700, #ff5c00, #333333) 1;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+@media (pointer: fine) {
+  body {
+    cursor: default;
+  }
+}

@@ -1,0 +1,120 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Service {
+  title: string;
+  description: string;
+  icon: string;
+  iconColor: string;
+  glow: string;
+  tag: string;
+  number: string;
+}
+
+const services: Service[] = [
+  {
+    title: 'EDICIÓN DE VIDEO',
+    description:
+      'Edición profesional, cortes dinámicos, ritmo visual envolvente, sincronización musical y narrativa que atrapa desde el primer segundo.',
+    icon: 'lucide:scissors',
+    iconColor: 'text-brand-orange',
+    glow: 'bg-brand-red/5 group-hover:bg-brand-red/20',
+    tag: 'RITMO & STORYTELLING',
+    number: '01',
+  },
+  {
+    title: 'VIDEOS PARA REDES SOCIALES',
+    description:
+      'Contenido optimizado para TikTok, Instagram Reels, YouTube Shorts y Facebook. Hooks de alto impacto, subtítulos animados y transiciones virales.',
+    icon: 'lucide:smartphone',
+    iconColor: 'text-brand-red',
+    glow: 'bg-brand-orange/5 group-hover:bg-brand-orange/20',
+    tag: 'VERTICAL 9:16 & VIRAL',
+    number: '02',
+  },
+  {
+    title: 'PRODUCCIÓN AUDIOVISUAL',
+    description:
+      'Planificación, rodaje y desarrollo de material audiovisual cinematográfico con iluminación cuidada, audio profesional y dirección de escena.',
+    icon: 'lucide:video',
+    iconColor: 'text-brand-orange',
+    glow: 'bg-brand-vivid/5 group-hover:bg-brand-vivid/20',
+    tag: 'PRODUCCIÓN INTEGRAL',
+    number: '03',
+  },
+  {
+    title: 'VIDEO CORPORATIVO',
+    description:
+      'Videos profesionales para empresas, testimoniales de clientes, presentaciones de producto y branding corporativo que comunican autoridad.',
+    icon: 'lucide:briefcase',
+    iconColor: 'text-brand-red',
+    glow: 'bg-brand-red/5 group-hover:bg-brand-red/20',
+    tag: 'BRANDING & B2B',
+    number: '04',
+  },
+  {
+    title: 'EDICIÓN DE PODCAST',
+    description:
+      'Cortes multicámara automáticos o manuales, ecualización y limpieza de audio, inserción de clips de apoyo y extracción de micro-cápsulas para redes.',
+    icon: 'lucide:mic',
+    iconColor: 'text-brand-orange',
+    glow: 'bg-brand-orange/5 group-hover:bg-brand-orange/20',
+    tag: 'AUDIO & MULTICÁMARA',
+    number: '05',
+  },
+  {
+    title: 'COLOR GRADING & FX',
+    description:
+      'Tratamiento de color cinematográfico (LUTs personalizados, corrección primaria y secundaria), efectos de sonido inmersivos (SFX) y motion graphics.',
+    icon: 'lucide:sliders-horizontal',
+    iconColor: 'text-brand-red',
+    glow: 'bg-brand-red/5 group-hover:bg-brand-red/20',
+    tag: 'POSTPRODUCCIÓN AVANZADA',
+    number: '06',
+  },
+];
+---
+
+<section id='services' class='mx-auto max-w-7xl px-5 py-20 sm:px-8'>
+  <div class='mx-auto mb-16 max-w-3xl text-center'>
+    <span class='font-mono text-xs uppercase tracking-widest text-brand-orange'>
+      SOLUCIONES A TU MEDIDA
+    </span>
+    <h2
+      class='mt-2 font-heading text-3xl font-extrabold uppercase tracking-tight text-white sm:text-5xl'
+    >
+      ¿QUÉ PUEDO HACER POR TI?
+    </h2>
+    <p class='mt-4 text-sm text-neutral-400 sm:text-base'>
+      Servicios integrales desde el corte inicial hasta el color grading final y la optimización
+      para múltiples plataformas digitales.
+    </p>
+  </div>
+
+  <div class='grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3'>
+    {
+      services.map((service) => (
+        <div class='group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-neutral-800/80 bg-brand-card p-8 transition-all duration-300 hover:border-brand-orange'>
+          <div
+            class={`absolute right-0 top-0 h-24 w-24 rounded-full blur-2xl transition-all ${service.glow}`}
+          />
+          <div>
+            <div
+              class={`mb-6 flex h-12 w-12 items-center justify-center rounded-xl border border-neutral-700 bg-neutral-900 transition-transform group-hover:scale-110 ${service.iconColor}`}
+            >
+              <Icon name={service.icon} class='h-6 w-6' />
+            </div>
+            <h3 class='font-heading text-xl font-bold text-white transition-colors group-hover:text-brand-orange'>
+              {service.title}
+            </h3>
+            <p class='mt-3 text-sm leading-relaxed text-neutral-400'>{service.description}</p>
+          </div>
+          <div class='mt-6 flex items-center justify-between border-t border-neutral-900 pt-4 font-mono text-xs text-neutral-500'>
+            <span>{service.tag}</span>
+            <span class='font-bold text-brand-orange'>{service.number}</span>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>

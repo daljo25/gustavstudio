@@ -1,0 +1,137 @@
+---
+import { Icon } from 'astro-icon/components';
+
+type Accent = 'orange' | 'red';
+
+interface GalleryItem {
+  image: string;
+  alt: string;
+  tag?: string;
+  tagColor?: 'orange' | 'red';
+  title?: string;
+  subtitle?: string;
+  accent: Accent;
+}
+
+const galleryItems: GalleryItem[] = [
+  {
+    image:
+      'https://lh3.googleusercontent.com/aida-public/AB6AXuBvxNQczz7k2-SZTy9dzMHN_RVzG2cqldbo8-Ubn481urJBAapT2RhbW5SaNvtH1XcIGCugX-odfIBNGhikGDKY5Ob6V9MK6uka_HbY23IkJ2LL7zt7OJFQWennIiPBpIXnee2zjV_S4388I-Wsewr4r1UZs_jN79EX7v65SXD7_IB-AIc0QhO5ROt1Dq28pxslgFaQoBbDh4BzzQ6jI1NL7-B6k6UTqW7uDjFQ0LnjMZGQPtKYc7JzFCAac3XigLSy9kOtblDXo1ho5q0',
+    alt: 'Cámara Cinema Rig y Ópticas Anamórficas',
+    title: 'CERTIFICADO PRODUCCIÓN EN TV',
+    accent: 'orange',
+  },
+  {
+    image:
+      'https://lh3.googleusercontent.com/aida-public/AB6AXuD5VD2jXQ7o5dDMj4An9VLNKjPKro3zEz2nXThGoIWAETY53IjwWpGOrVmRFuMW0AP7CYoYGErsLxM9p0SjgYFHECc4y1Jjgy6q0-0gF71_r_kFg7vJTp11Cx_tkuoGwMQXXP1pE0RgyAC8QVk5Du317niGBJUpcOcgHyu-nlwiCk9yjyMQ4jgf75r2tgwGsk_fecxZl4HsYnN4necoSP2SNE4vhFELNWt8x59G0PpyIdPuyWe4KtRuFrkwx-vCU5n90PcoVKQlzB-YZ_0',
+    alt: 'Suite de Color Grading y Monitoreo HDR',
+    accent: 'red',
+  },
+  {
+    image:
+      'https://lh3.googleusercontent.com/aida-public/AB6AXuBdLbtI_PXQxlbvCZD0mUjs2yDcQOHhncdkxWmygMZVNJEljXdqDrWM91SckM3anj-sJGSQGh_uL-jdT44EcJQyRyHH_Ab1gUkMFWm5_gyyIvE_7586lfCrftsLQMNAfpZoXhlE6uOVP11vdSk3hEc89ElUiROsayiRr9dkHF6SIvHND7OAmnx2MYZcTW6NePp5LNVbY9QCmb-Pd97VV4cLXD3z6gNpMres5HZeWwhwHkHyOlvEvfh6q8rwVHAqrvS_l3fqUAgwPFt2j98',
+    alt: 'Dirección de Actores y Puesta en Escena',
+    title: 'CERTIFICADO PRODUCCIÓN RADIAL',
+    accent: 'orange',
+  },
+  {
+    image:
+      'https://lh3.googleusercontent.com/aida-public/AB6AXuCPCErVE3tk5PFGCETQJnr6LsqiAMmxviJqaPlJE-Id_AGzrwGtzaCKNkpzoVM44JT1hSG6KgdywJQmIyb3RSACL7StKynVL3zSdbLdOvTvX4dmBB4viCnjP7VzPsVoVokGzeYxUc7oUa0mCLz128cNy8y7gJ4x3FJE1QKQPymR0pYho7Sq0tNbnLrUFOwgE1t4-MahCxzA3bgtv2W8IA3frFc2-NQMOaiUot8QG_ZUa5ABIIJUP6A_JU87yASRXgiLeiZ3b7abUIOEHRY',
+    alt: 'Grabación y Tratamiento de Sonido Inmersivo',
+    tag: 'INTROS DINAMICAS',
+    tagColor: 'red',
+    title: 'PODCAST DEMENTES SIN FILTROS',
+    accent: 'red',
+  },
+  {
+    image:
+      'https://lh3.googleusercontent.com/aida-public/AB6AXuAEf6FnL5etLS5kAsnA7w8rZNoBp2nrFG60zHGQ9u4BDmDw9vRAkiEmo6ceMSoV4vDPsGG0LNxGKI4UHoQ9OXf3fKZIfFlODImVGJ2w2Ku6G-MVmc-4tN2RrIfrn4w_0Hi9XP2kDUhK5sgb5OVGQxC_65rJanW92h6P5EyQmByKtnGhGGBgtKYCb0UbRPFSbTQGWbD9eeCLvxZrVH9cG-rsxLU9AKy8HT0I6pcoCMqxs0aCpfRNkR1XZr6oysPwxuHsCKFc-RgFHOPyAKo',
+    alt: 'Iluminación Escénica en Rodaje Comercial',
+    tag: 'PODCAST',
+    tagColor: 'orange',
+    title: 'DEMENTES SIN FILTROS',
+    subtitle: 'PRODUCCIÓN Y EDICIÓN',
+    accent: 'orange',
+  },
+  {
+    image:
+      'https://lh3.googleusercontent.com/aida-public/AB6AXuDavOg7QK8EH2IXO1soF1vbe8PSmAHZiXLwVXhaPs6t6dpRe1zhicnirdAI20dlzAvqMPE6xBpZmHfFNxwWxEi_opyiFswN4hwD10-8YG6toeEcyeBK9lyGgfDQXWv7W1W_iSr7Cp77yKiVrxjP6rvdg8TUI7G_E8vnn9Jk1O6oriCFl_2rGdv6kyamm_7FQsgOZEAH_iLp3YFSocITAqARYN51-KZLUgjvjpTLS8wHjXXNs7u_Hr16yZAWbo0XVdcwznUpMCXY9PUlEJ4',
+    alt: 'Composición VFX y Motion Graphics',
+    tag: 'VIDEO MUESTRA',
+    tagColor: 'red',
+    title: 'VIDEO REFLEXIVO',
+    subtitle: 'PRODUCCIÓN Y EDICIÓN',
+    accent: 'red',
+  },
+];
+
+const accentStyles: Record<Accent, { hover: string; shadow: string }> = {
+  orange: { hover: 'hover:border-brand-orange', shadow: 'hover:shadow-glow-card' },
+  red: { hover: 'hover:border-brand-red', shadow: 'hover:shadow-glow-red' },
+};
+---
+
+<section id='galeria' class='relative mx-auto max-w-7xl px-5 py-20 sm:px-8'>
+  <div class='mx-auto mb-14 max-w-3xl text-center'>
+    <div class='mb-3 inline-flex items-center gap-2'>
+      <span class='h-2 w-2 animate-pulse rounded-full bg-brand-red'></span>
+      <span class='font-mono text-xs uppercase tracking-widest text-brand-orange'>
+        // GALERIA AUDIOVISUAL
+      </span>
+    </div>
+    <h2
+      class='mt-1 font-heading text-3xl font-extrabold uppercase tracking-tight text-white sm:text-5xl'
+    >
+      CONOCIMIENTO Y EXPERIENCIA COMPROBABLE
+    </h2>
+  </div>
+
+  <div class='grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3'>
+    {
+      galleryItems.map((item) => (
+        <div
+          class={`group relative flex cursor-pointer flex-col justify-between overflow-hidden rounded-2xl border border-neutral-800/80 bg-brand-card transition-all duration-300 ${accentStyles[item.accent].hover} ${accentStyles[item.accent].shadow}`}
+        >
+          <div class='relative aspect-video w-full overflow-hidden bg-neutral-950 sm:aspect-[4/3]'>
+            <img
+              src={item.image}
+              alt={item.alt}
+              class='h-full w-full object-cover opacity-90 transition-transform duration-500 group-hover:scale-105'
+              loading='lazy'
+            />
+            <div class='absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/30 to-transparent' />
+
+            {item.tag && (
+              <div class='absolute left-3 top-3'>
+                <span
+                  class={`rounded-md border border-neutral-700 bg-black/80 px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-wider backdrop-blur-md ${item.tagColor === 'red' ? 'text-brand-red' : 'text-brand-orange'}`}
+                >
+                  {item.tag}
+                </span>
+              </div>
+            )}
+
+            <div class='absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-200 group-hover:opacity-100'>
+              <div class='red-orange-grad flex h-12 w-12 scale-90 items-center justify-center rounded-full text-white shadow-glow-red transition-transform group-hover:scale-100'>
+                <Icon name='lucide:expand' class='h-5 w-5' />
+              </div>
+            </div>
+
+            {(item.title || item.subtitle) && (
+              <div class='absolute bottom-3 left-3 right-3'>
+                {item.title && (
+                  <h3 class='font-heading text-base font-bold text-white transition-colors group-hover:text-brand-orange'>
+                    {item.title}
+                  </h3>
+                )}
+                {item.subtitle && (
+                  <p class='mt-0.5 font-mono text-[11px] text-neutral-400'>{item.subtitle}</p>
+                )}
+              </div>
+            )}
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>

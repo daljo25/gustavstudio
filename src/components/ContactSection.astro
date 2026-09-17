@@ -1,0 +1,130 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface ContactCard {
+  label: string;
+  value: string;
+  href: string;
+  icon: string;
+  iconBox: string;
+  hover: string;
+  external?: boolean;
+}
+
+const whatsappLink =
+  'https://wa.me/51943604589?text=Hola%20Gustav,%20vi%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20consultar%20sobre%20un%20proyecto%20audiovisual.';
+
+const contactCards: ContactCard[] = [
+  {
+    label: 'WHATSAPP OFICIAL',
+    value: '+51 943 604 589',
+    href: whatsappLink,
+    icon: 'lucide:message-circle',
+    iconBox: 'bg-emerald-500/10 text-emerald-400',
+    hover: 'hover:border-emerald-500',
+    external: true,
+  },
+  {
+    label: 'CORREO ELECTRÓNICO',
+    value: 'studiosgustav@gmail.com',
+    href: 'mailto:studiosgustav@gmail.com',
+    icon: 'lucide:mail',
+    iconBox: 'bg-brand-orange/10 text-brand-orange',
+    hover: 'hover:border-brand-orange',
+  },
+];
+
+const location = {
+  label: 'UBICACIÓN & COBERTURA',
+  value: 'Lima, Perú • Proyectos Globales Remotos',
+  icon: 'lucide:map-pin',
+};
+
+interface SocialLink {
+  label: string;
+  href: string;
+  icon: string;
+}
+
+const socialLinks: SocialLink[] = [
+  { label: 'Instagram', href: 'https://instagram.com', icon: 'lucide:instagram' },
+  { label: 'TikTok', href: 'https://tiktok.com', icon: 'lucide:music-2' },
+  { label: 'YouTube', href: 'https://youtube.com', icon: 'lucide:youtube' },
+];
+---
+
+<section id='contact' class='mx-auto max-w-7xl px-5 py-20 sm:px-8'>
+  <div class='mx-auto flex max-w-3xl flex-col items-center text-center'>
+    <div class='flex w-full flex-col items-center'>
+      <span class='font-mono text-xs uppercase tracking-widest text-brand-orange'>
+        CONEXIÓN DIRECTA
+      </span>
+      <h2
+        class='mt-1 font-heading text-4xl font-extrabold uppercase tracking-tight text-white sm:text-5xl'
+      >
+        HABLEMOS
+      </h2>
+      <p class='mt-4 max-w-xl text-sm leading-relaxed text-neutral-400 sm:text-base'>
+        "¿Tienes un proyecto audiovisual en mente? Escríbeme y cuéntame qué necesitas. Te
+        responderé en menos de 24 horas."
+      </p>
+
+      <div class='mt-8 flex w-full flex-col justify-center gap-5 sm:flex-row'>
+        {
+          contactCards.map((card) => (
+            <a
+              href={card.href}
+              target={card.external ? '_blank' : undefined}
+              rel={card.external ? 'noopener noreferrer' : undefined}
+              class={`group flex flex-1 items-center gap-4 rounded-xl border border-neutral-800 bg-brand-card p-5 text-left transition-all ${card.hover}`}
+            >
+              <div
+                class={`flex h-12 w-12 shrink-0 items-center justify-center rounded-lg transition-transform group-hover:scale-110 ${card.iconBox}`}
+              >
+                <Icon name={card.icon} class='h-6 w-6' />
+              </div>
+              <div>
+                <div class='font-mono text-[11px] uppercase text-neutral-400'>{card.label}</div>
+                <div class='font-heading text-base font-bold text-white'>{card.value}</div>
+              </div>
+            </a>
+          ))
+        }
+      </div>
+
+      <div
+        class='mt-5 flex w-full items-center justify-center gap-4 rounded-xl border border-neutral-800 bg-brand-card p-5 text-center'
+      >
+        <div
+          class='flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-brand-red/10 text-brand-red'
+        >
+          <Icon name={location.icon} class='h-6 w-6' />
+        </div>
+        <div class='text-left'>
+          <div class='font-mono text-[11px] uppercase text-neutral-400'>{location.label}</div>
+          <div class='font-heading text-base font-bold text-white'>{location.value}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class='mt-8 flex w-full flex-col items-center border-t border-neutral-900 pt-6'>
+      <span class='font-mono text-xs uppercase text-neutral-500'>SÍGUEME EN REDES:</span>
+      <div class='mt-3 flex items-center justify-center gap-3'>
+        {
+          socialLinks.map((social) => (
+            <a
+              href={social.href}
+              target='_blank'
+              rel='noopener noreferrer'
+              title={social.label}
+              aria-label={social.label}
+              class='rounded-lg border border-neutral-800 bg-neutral-900 p-3 text-neutral-400 transition-colors hover:border-brand-orange hover:text-white'
+            >
+              <Icon name={social.icon} class='h-5 w-5' />
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

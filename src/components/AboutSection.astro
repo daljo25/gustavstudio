@@ -1,0 +1,110 @@
+---
+import { Icon } from 'astro-icon/components';
+
+const whatsappLink =
+  'https://wa.me/51943604589?text=Hola%20Gustav,%20vi%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20consultar%20sobre%20un%20proyecto%20audiovisual.';
+---
+
+<section id='about' class='mx-auto max-w-7xl px-5 py-20 sm:px-8'>
+  <div
+    class='relative overflow-hidden rounded-3xl border border-neutral-800 bg-brand-card/90 p-8 sm:p-12 lg:p-16'
+  >
+    <div class='relative z-10 grid items-center gap-12 lg:grid-cols-12'>
+      <!-- Image Container -->
+      <div class='flex flex-col items-center lg:col-span-5'>
+        <div
+          class='group relative aspect-[4/5] w-full max-w-md overflow-hidden rounded-2xl border-2 border-neutral-800 shadow-glow-orange'
+        >
+          <img
+            src='/images/me.webp'
+            alt='Gustav - Editor & Productor Audiovisual'
+            class='h-full w-full object-contain object-top pt-4 filter contrast-110 saturate-110 transition-transform duration-500 group-hover:scale-105'
+            loading='lazy'
+          />
+          <div class='absolute inset-0 bg-gradient-to-t from-brand-black via-transparent to-transparent'></div>
+
+          <!-- Badge overlay -->
+          <div
+            class='absolute bottom-4 left-4 right-4 flex items-center justify-between rounded-xl border border-neutral-800 bg-black/80 p-4 backdrop-blur-md'
+          >
+            <div>
+              <h4 class='font-heading text-base font-bold text-white'>GUSTAVO ADOLFO LÓPEZ</h4>
+              <p class='font-mono text-[11px] text-brand-orange'>CREADOR AUDIOVISUAL</p>
+            </div>
+            <span
+              class='h-3 w-3 animate-pulse rounded-full bg-emerald-500'
+              title='Disponible para contratación'
+            ></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Text Presentation -->
+      <div class='flex flex-col items-start lg:col-span-7'>
+        <span class='font-mono text-xs uppercase tracking-widest text-brand-orange'>CONÓCEME</span>
+        <h2
+          class='mt-1 font-heading text-3xl font-extrabold uppercase tracking-tight text-white sm:text-5xl'
+        >
+          SOBRE MÍ
+        </h2>
+
+        <p class='mt-6 text-lg font-medium leading-relaxed text-neutral-200 sm:text-xl'>
+          "Soy Gustav, editor y productor audiovisual apasionado por transformar imágenes,
+          sonidos e ideas en contenido que conecte genuinamente con las personas."
+        </p>
+        <p class='mt-4 text-sm leading-relaxed text-neutral-400 sm:text-base'>
+          Llevo más de 6 años explorando las fronteras del lenguaje audiovisual. Mi trabajo no
+          se limita a cortar clips y sincronizarlos con música: estudio el comportamiento de la
+          audiencia, la psicología del ritmo y el impacto del color para asegurar que cada
+          segundo retenga y emocione.
+        </p>
+        <p class='mt-4 text-sm leading-relaxed text-neutral-400 sm:text-base'>
+          He colaborado con marcas, agencias, streamers, creadores de contenido y empresas
+          internacionales, entregando producciones optimizadas para conversión, reputación de
+          marca o viralidad digital.
+        </p>
+
+        <!-- Key attributes -->
+        <div class='mt-8 grid w-full grid-cols-1 gap-4 sm:grid-cols-2'>
+          <div class='rounded-xl border border-neutral-800/80 bg-neutral-950/80 p-4'>
+            <div class='flex items-center gap-2 font-heading text-base font-bold text-white'>
+              <Icon name='lucide:zap' class='h-4 w-4 text-brand-orange' />
+              Narrativa y Ritmo
+            </div>
+            <p class='mt-1 text-xs text-neutral-400'>
+              Estructuras narrativas que eliminan el aburrimiento y retienen la atención.
+            </p>
+          </div>
+          <div class='rounded-xl border border-neutral-800/80 bg-neutral-950/80 p-4'>
+            <div class='flex items-center gap-2 font-heading text-base font-bold text-white'>
+              <Icon name='lucide:target' class='h-4 w-4 text-brand-red' />
+              Enfoque en Conversión
+            </div>
+            <p class='mt-1 text-xs text-neutral-400'>
+              Videos diseñados con objetivos claros: ventas, reproducciones o posicionamiento.
+            </p>
+          </div>
+        </div>
+
+        <!-- Action buttons -->
+        <div class='mt-8 flex flex-wrap gap-4'>
+          <a
+            href='#contact'
+            class='red-orange-grad rounded-lg px-6 py-3 font-heading text-xs font-bold uppercase tracking-wider text-white transition-all hover:shadow-glow-orange'
+          >
+            INICIAR CONVERSACIÓN
+          </a>
+          <a
+            href={whatsappLink}
+            target='_blank'
+            rel='noopener noreferrer'
+            class='flex items-center gap-2 rounded-lg border border-neutral-800 bg-neutral-900 px-6 py-3 font-heading text-xs font-bold uppercase tracking-wider text-neutral-300 transition-all hover:border-brand-orange'
+          >
+            <Icon name='lucide:message-circle' class='h-4 w-4 text-emerald-400' />
+            <span>CHATEAR POR WHATSAPP</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

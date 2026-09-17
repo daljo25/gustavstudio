@@ -1,0 +1,127 @@
+---
+import { Icon } from 'astro-icon/components';
+
+type Accent = 'red' | 'orange' | 'vivid' | 'emerald';
+
+interface ProcessStep {
+  number: string;
+  stage: string;
+  title: string;
+  text: string;
+  deliverable: string;
+  accent: Accent;
+}
+
+const steps: ProcessStep[] = [
+  {
+    number: '01',
+    stage: 'ETAPA INICIAL',
+    title: 'IDEA & BRIEF',
+    text: 'Entendemos el objetivo, concepto, tono, plataforma destino y la audiencia a la que quieres impactar.',
+    deliverable: 'Definición de estilo y guion',
+    accent: 'red',
+  },
+  {
+    number: '02',
+    stage: 'DESARROLLO',
+    title: 'PRODUCCIÓN',
+    text: 'Organizamos, seleccionamos y desarrollamos el material grabado o preparamos el rodaje audiovisual.',
+    deliverable: 'Captura y selección de tomas',
+    accent: 'orange',
+  },
+  {
+    number: '03',
+    stage: 'POSTPRODUCCIÓN',
+    title: 'EDICIÓN',
+    text: 'Construimos ritmo, narrativa, color grading cinematográfico, efectos de sonido y diseño de movimiento.',
+    deliverable: 'Montaje, FX y color grading',
+    accent: 'vivid',
+  },
+  {
+    number: '04',
+    stage: 'FINAL',
+    title: 'ENTREGA',
+    text: 'Ronda de revisión, optimización de códecs y exportación en alta resolución listo para publicar.',
+    deliverable: 'Master final 4K/FullHD',
+    accent: 'emerald',
+  },
+];
+
+const accentStyles: Record<Accent, { hover: string; number: string; badge: string }> = {
+  red: {
+    hover: 'hover:border-brand-red',
+    number: 'text-brand-red',
+    badge: 'bg-brand-red/10 text-brand-red',
+  },
+  orange: {
+    hover: 'hover:border-brand-orange',
+    number: 'text-brand-orange',
+    badge: 'bg-brand-orange/10 text-brand-orange',
+  },
+  vivid: {
+    hover: 'hover:border-brand-vivid',
+    number: 'text-brand-vivid',
+    badge: 'bg-brand-vivid/10 text-brand-vivid',
+  },
+  emerald: {
+    hover: 'hover:border-emerald-500',
+    number: 'text-emerald-400',
+    badge: 'bg-emerald-400/10 text-emerald-400',
+  },
+};
+---
+
+<section id='process' class='mx-auto max-w-7xl px-5 py-20 sm:px-8'>
+  <div class='mx-auto mb-16 max-w-3xl text-center'>
+    <span class='font-mono text-xs uppercase tracking-widest text-brand-orange'>
+      METODOLOGÍA CLARA
+    </span>
+    <h2
+      class='mt-2 font-heading text-3xl font-extrabold uppercase tracking-tight text-white sm:text-5xl'
+    >
+      DEL CONCEPTO AL VIDEO FINAL
+    </h2>
+    <p class='mt-4 text-sm text-neutral-400 sm:text-base'>
+      Un flujo estructurado en 4 fases para garantizar que cada entrega cumpla tus expectativas
+      de tiempo, estética y resultados.
+    </p>
+  </div>
+
+  <div class='relative'>
+    <div
+      class='red-orange-grad absolute left-0 right-0 top-1/2 z-0 hidden h-0.5 -translate-y-1/2 opacity-40 lg:block'
+    >
+    </div>
+
+    <div class='relative z-10 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4'>
+      {
+        steps.map((step) => (
+          <div
+            class={`group flex flex-col justify-between rounded-2xl border border-neutral-800 bg-brand-card p-6 transition-all ${accentStyles[step.accent].hover}`}
+          >
+            <div>
+              <div class='mb-4 flex items-center justify-between'>
+                <span
+                  class={`font-heading text-3xl font-extrabold transition-transform group-hover:scale-110 ${accentStyles[step.accent].number}`}
+                >
+                  {step.number}
+                </span>
+                <span
+                  class={`rounded px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider ${accentStyles[step.accent].badge}`}
+                >
+                  {step.stage}
+                </span>
+              </div>
+              <h3 class='font-heading text-xl font-bold text-white'>{step.title}</h3>
+              <p class='mt-3 text-sm leading-relaxed text-neutral-400'>{step.text}</p>
+            </div>
+            <div class='mt-6 flex items-center gap-1.5 border-t border-neutral-900 pt-4 font-mono text-xs text-neutral-500'>
+              <Icon name='lucide:check' class='h-3.5 w-3.5 shrink-0 text-emerald-400' />
+              {step.deliverable}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
