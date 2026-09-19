@@ -1,40 +1,47 @@
 ---
-import { Icon } from 'astro-icon/components';
+import { Icon } from "astro-icon/components";
 
 const { videos = [] } = Astro.props as { videos?: Array<Record<string, any>> };
 
 const normalizeCategory = (category: unknown): string => {
-  const value = typeof category === 'string' ? category : 'otros';
-  return value in categoryLabels ? value : 'otros';
+  const value = typeof category === "string" ? category : "otros";
+  return value in categoryLabels ? value : "otros";
 };
 
 const categoryLabels: Record<string, string> = {
-  all: 'Todos',
-  reels: 'Reels',
-  shorts: 'Shorts',
-  podcast: 'Podcast',
-  social: 'Redes sociales',
-  eventos: 'Eventos',
-  youtube: 'YouTube',
-  otros: 'Otros',
+  all: "Todos",
+  reels: "Reels",
+  shorts: "Shorts",
+  podcast: "Podcast",
+  social: "Redes sociales",
+  eventos: "Eventos",
+  youtube: "YouTube",
+  otros: "Otros",
 };
 
 const categoryLongLabels: Record<string, string> = {
-  reels: 'REELS INSTAGRAM',
-  shorts: 'SHORTS / TIKTOK',
-  podcast: 'PODCAST',
-  social: 'REDES SOCIALES',
-  eventos: 'EVENTOS',
-  youtube: 'YOUTUBE',
-  otros: 'OTROS',
+  reels: "REELS INSTAGRAM",
+  shorts: "SHORTS / TIKTOK",
+  podcast: "PODCAST",
+  social: "REDES SOCIALES",
+  eventos: "EVENTOS",
+  youtube: "YOUTUBE",
+  otros: "OTROS",
 };
 
-const categories = ['all', ...new Set(videos.map((video: any) => normalizeCategory(video.data.category)))];
+const categories = [
+  "all",
+  ...new Set(
+    videos.map((video: any) => normalizeCategory(video.data.category)),
+  ),
+];
 
 const modalData = videos.map((video: any) => ({
   id: video.id,
   title: video.data.title,
-  category: categoryLongLabels[normalizeCategory(video.data.category)] ?? video.data.category,
+  category:
+    categoryLongLabels[normalizeCategory(video.data.category)] ??
+    video.data.category,
   description: video.data.description,
   image: video.data.image,
   client: video.data.client,
@@ -45,117 +52,164 @@ const modalData = videos.map((video: any) => ({
 }));
 ---
 
-<section id='portfolio' class='mx-auto max-w-7xl px-5 py-20 sm:px-8'>
-  <div class='mb-8 flex flex-col gap-6 md:flex-row md:items-end md:justify-between'>
+<section id="portfolio" class="mx-auto max-w-7xl px-5 py-20 sm:px-8">
+  <div
+    class="mb-8 flex flex-col gap-6 md:flex-row md:items-end md:justify-between"
+  >
     <div>
-      <span class='font-mono text-[11px] uppercase tracking-[0.28em] text-brand-orange'>Trabajos seleccionados</span>
-      <h2 class='mt-3 font-heading text-4xl font-extrabold uppercase tracking-[-0.06em] text-white sm:text-5xl'>Portafolio audiovisual</h2>
+      <span
+        class="font-mono text-[11px] uppercase tracking-[0.28em] text-brand-orange"
+        >Trabajos seleccionados</span
+      >
+      <h2
+        class="mt-3 font-heading text-4xl font-extrabold uppercase tracking-[-0.06em] text-white sm:text-5xl"
+      >
+        Portafolio audiovisual
+      </h2>
     </div>
-    <p class='max-w-xl text-sm leading-relaxed text-neutral-400'>
-      Cada proyecto cuenta una historia. Filtro por categoría y descubre piezas pensadas para capturar atención, generar engagement y convertir mirada en acción.
+    <p class="max-w-xl text-sm leading-relaxed text-neutral-400">
+      Cada proyecto cuenta una historia. Filtro por categoría y descubre piezas
+      pensadas para capturar atención, generar engagement y convertir mirada en
+      acción.
     </p>
   </div>
 
-  <div class='mb-8 flex flex-wrap gap-3'>
-    {categories.map((category) => (
-      <button
-        type='button'
-        class='filter-btn rounded-lg border border-neutral-800 bg-neutral-950 px-4 py-2 font-mono text-[10px] uppercase tracking-[0.26em] text-neutral-300 transition hover:border-brand-orange hover:text-white data-[active=true]:border-brand-red data-[active=true]:bg-brand-red data-[active=true]:text-white'
-        data-filter={category}
-        data-active={category === 'all'}
-      >
-        {categoryLabels[category]}
-      </button>
-    ))}
+  <div class="mb-8 flex flex-wrap gap-3">
+    {
+      categories.map((category) => (
+        <button
+          type="button"
+          class="filter-btn rounded-lg border border-neutral-800 bg-neutral-950 px-4 py-2 font-mono text-[10px] uppercase tracking-[0.26em] text-neutral-300 transition hover:border-brand-orange hover:text-white data-[active=true]:border-brand-red data-[active=true]:bg-brand-red data-[active=true]:text-white"
+          data-filter={category}
+          data-active={category === "all"}
+        >
+          {categoryLabels[category]}
+        </button>
+      ))
+    }
   </div>
 
-  <div class='grid gap-6 md:grid-cols-2 xl:grid-cols-3'>
-    {videos.map((video) => (
-      <article
-        class='video-card group cursor-pointer overflow-hidden rounded-2xl border border-neutral-800 bg-brand-card transition duration-300 hover:-translate-y-1 hover:border-brand-orange hover:shadow-[0_25px_45px_rgba(255,92,0,0.12)]'
-        data-category={video.data.category}
-        data-video-id={video.id}
-      >
-        <div class='relative aspect-video overflow-hidden bg-neutral-950'>
-          <img src={video.data.image} alt={video.data.title} class='h-full w-full object-cover transition duration-500 group-hover:scale-105' />
-          <div class='absolute inset-0 bg-linear-to-t from-brand-black via-transparent to-transparent'></div>
-          <div class='absolute left-3 top-3 rounded-md border border-neutral-700 bg-black/70 px-2 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-brand-orange'>
-            {categoryLabels[video.data.category]}
-          </div>
-          <div class='absolute right-3 top-3 rounded-md border border-neutral-700 bg-black/60 px-2 py-1 font-mono text-[10px] uppercase tracking-[0.14em] text-neutral-200'>
-            {video.data.duration}
-          </div>
-          <div class='absolute inset-0 flex items-center justify-center opacity-0 transition duration-200 group-hover:opacity-100'>
-            <div class='flex h-14 w-14 items-center justify-center rounded-full bg-linear-to-r from-brand-red to-brand-orange text-white shadow-[0_0_35px_rgba(255,92,0,0.45)]'>
-              <Icon name='lucide:play' class='ml-0.5 h-6 w-6 fill-current' />
+  <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+    {
+      videos.map((video) => (
+        <article
+          class="video-card group cursor-pointer overflow-hidden rounded-2xl border border-neutral-800 bg-brand-card transition duration-300 hover:-translate-y-1 hover:border-brand-orange hover:shadow-[0_25px_45px_rgba(255,92,0,0.12)]"
+          data-category={video.data.category}
+          data-video-id={video.id}
+        >
+          <div class="relative aspect-video overflow-hidden bg-neutral-950">
+            <img
+              src={video.data.image}
+              alt={video.data.title}
+              class="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+            />
+            <div class="absolute inset-0 bg-linear-to-t from-brand-black via-transparent to-transparent" />
+            <div class="absolute left-3 top-3 rounded-md border border-neutral-700 bg-black/70 px-2 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-brand-orange">
+              {categoryLabels[video.data.category]}
+            </div>
+            <div class="absolute right-3 top-3 rounded-md border border-neutral-700 bg-black/60 px-2 py-1 font-mono text-[10px] uppercase tracking-[0.14em] text-neutral-200">
+              {video.data.duration}
+            </div>
+            <div class="absolute inset-0 flex items-center justify-center opacity-0 transition duration-200 group-hover:opacity-100">
+              <div class="flex h-14 w-14 items-center justify-center rounded-full bg-linear-to-r from-brand-red to-brand-orange text-white shadow-[0_0_35px_rgba(255,92,0,0.45)]">
+                <Icon name="lucide:play" class="ml-0.5 h-6 w-6 fill-current" />
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class='flex flex-col gap-4 p-5'>
-          <div>
-            <h3 class='font-heading text-xl font-bold text-white transition group-hover:text-brand-orange'>{video.data.title}</h3>
-            <p class='mt-3 text-sm leading-relaxed text-neutral-400'>{video.data.description}</p>
-          </div>
+          <div class="flex flex-col gap-4 p-5">
+            <div>
+              <h3 class="font-heading text-xl font-bold text-white transition group-hover:text-brand-orange">
+                {video.data.title}
+              </h3>
+              <p class="mt-3 text-sm leading-relaxed text-neutral-400">
+                {video.data.description}
+              </p>
+            </div>
 
-          <div class='flex items-center justify-between border-t border-neutral-800 pt-4 text-[11px] font-mono uppercase tracking-[0.16em] text-neutral-500'>
-            <span>Cliente: <strong class='text-neutral-300'>{video.data.client}</strong></span>
-            <span class='flex items-center gap-1 text-brand-orange'>Ver video <Icon name='lucide:arrow-right' class='h-3 w-3' /></span>
+            <div class="flex items-center justify-between border-t border-neutral-800 pt-4 text-[11px] font-mono uppercase tracking-[0.16em] text-neutral-500">
+              <span>
+                Cliente:{" "}
+                <strong class="text-neutral-300">{video.data.client}</strong>
+              </span>
+              <span class="flex items-center gap-1 text-brand-orange">
+                Ver video <Icon name="lucide:arrow-right" class="h-3 w-3" />
+              </span>
+            </div>
           </div>
-        </div>
-      </article>
-    ))}
+        </article>
+      ))
+    }
   </div>
 </section>
 
 <!-- Fullscreen video modal player -->
 <div
-  id='videoModal'
-  class='pointer-events-none fixed inset-0 z-90 flex items-center justify-center bg-black/95 p-4 opacity-0 backdrop-blur-2xl transition-opacity duration-300 sm:p-6'
+  id="videoModal"
+  class="pointer-events-none fixed inset-0 z-90 flex items-center justify-center bg-black/95 p-4 opacity-0 backdrop-blur-2xl transition-opacity duration-300 sm:p-6"
 >
   <div
-    class='relative flex max-h-[calc(100dvh-2rem)] w-full max-w-5xl flex-col overflow-y-auto rounded-2xl border border-neutral-800 bg-brand-card shadow-2xl sm:max-h-[calc(100dvh-3rem)]'
+    class="relative flex max-h-[calc(100dvh-2rem)] w-full max-w-5xl flex-col overflow-y-auto rounded-2xl border border-neutral-800 bg-brand-card shadow-2xl sm:max-h-[calc(100dvh-3rem)]"
   >
-    <div class='flex shrink-0 items-center justify-between border-b border-neutral-800 bg-neutral-950 p-4 sm:p-5'>
+    <div
+      class="flex shrink-0 items-center justify-between border-b border-neutral-800 bg-neutral-950 p-4 sm:p-5"
+    >
       <div>
-        <span id='modalCategory' class='font-mono text-xs uppercase tracking-widest text-brand-orange'></span>
-        <h4 id='modalTitle' class='font-heading text-lg font-bold text-white sm:text-xl'></h4>
+        <span
+          id="modalCategory"
+          class="font-mono text-xs uppercase tracking-widest text-brand-orange"
+        ></span>
+        <h4
+          id="modalTitle"
+          class="font-heading text-lg font-bold text-white sm:text-xl"
+        >
+        </h4>
       </div>
       <button
-        id='modalCloseBtn'
-        type='button'
-        aria-label='Cerrar modal'
-        class='flex items-center gap-1 rounded-lg border border-neutral-700 bg-neutral-900 p-2 font-mono text-xs text-neutral-300 transition-colors hover:border-brand-red hover:text-white'
+        id="modalCloseBtn"
+        type="button"
+        aria-label="Cerrar modal"
+        class="flex items-center gap-1 rounded-lg border border-neutral-700 bg-neutral-900 p-2 font-mono text-xs text-neutral-300 transition-colors hover:border-brand-red hover:text-white"
       >
         <span>CERRAR</span>
-        <Icon name='lucide:x' class='h-4 w-4' />
+        <Icon name="lucide:x" class="h-4 w-4" />
       </button>
     </div>
 
-    <div class='relative aspect-video max-h-[55dvh] w-full shrink-0 bg-black'>
-      <div id='videoContainer' class='absolute inset-0 flex items-center justify-center'></div>
+    <div class="relative aspect-video max-h-[55dvh] w-full shrink-0 bg-black">
+      <div
+        id="videoContainer"
+        class="absolute inset-0 flex items-center justify-center"
+      >
+      </div>
     </div>
 
-    <div class='flex shrink-0 flex-col justify-between gap-4 border-t border-neutral-900 bg-brand-dark p-5 sm:flex-row sm:p-6'>
-      <div class='max-w-lg space-y-1'>
-        <p id='modalDescription' class='text-sm leading-relaxed text-neutral-300'></p>
+    <div
+      class="flex shrink-0 flex-col justify-between gap-4 border-t border-neutral-900 bg-brand-dark p-5 sm:flex-row sm:p-6"
+    >
+      <div class="max-w-lg space-y-1">
+        <p
+          id="modalDescription"
+          class="text-sm leading-relaxed text-neutral-300"
+        >
+        </p>
       </div>
-      <div class='flex flex-wrap gap-4 font-mono text-xs text-neutral-400'>
+      <div class="flex flex-wrap gap-4 font-mono text-xs text-neutral-400">
         <div>
-          <span class='block text-neutral-500'>CLIENTE</span>
-          <span id='modalClient' class='font-bold text-white'></span>
+          <span class="block text-neutral-500">CLIENTE</span>
+          <span id="modalClient" class="font-bold text-white"></span>
         </div>
-        <div id='modalYearWrap'>
-          <span class='block text-neutral-500'>AÑO</span>
-          <span id='modalYear' class='font-bold text-white'></span>
+        <div id="modalYearWrap">
+          <span class="block text-neutral-500">AÑO</span>
+          <span id="modalYear" class="font-bold text-white"></span>
         </div>
         <div>
-          <span class='block text-neutral-500'>DURACIÓN</span>
-          <span id='modalDuration' class='font-bold text-white'></span>
+          <span class="block text-neutral-500">DURACIÓN</span>
+          <span id="modalDuration" class="font-bold text-white"></span>
         </div>
-        <div id='modalSoftwareWrap'>
-          <span class='block text-neutral-500'>SOFTWARE</span>
-          <span id='modalSoftware' class='font-bold text-brand-orange'></span>
+        <div id="modalSoftwareWrap">
+          <span class="block text-neutral-500">SOFTWARE</span>
+          <span id="modalSoftware" class="font-bold text-brand-orange"></span>
         </div>
       </div>
     </div>
@@ -163,49 +217,54 @@ const modalData = videos.map((video: any) => ({
 </div>
 
 <script define:vars={{ modalData }}>
-  const buttons = document.querySelectorAll('[data-filter]');
-  const cards = document.querySelectorAll('.video-card');
+  const buttons = document.querySelectorAll("[data-filter]");
+  const cards = document.querySelectorAll(".video-card");
 
   buttons.forEach((button) => {
-    button.addEventListener('click', () => {
+    button.addEventListener("click", () => {
       const filter = button.dataset.filter;
 
       buttons.forEach((item) => {
-        item.dataset.active = item === button ? 'true' : 'false';
+        item.dataset.active = item === button ? "true" : "false";
       });
 
       cards.forEach((card) => {
-        const isVisible = filter === 'all' || card.dataset.category === filter;
-        card.style.display = isVisible ? '' : 'none';
+        const isVisible = filter === "all" || card.dataset.category === filter;
+        card.style.display = isVisible ? "" : "none";
       });
     });
   });
 
-  const videoModal = document.getElementById('videoModal');
-  const videoContainer = document.getElementById('videoContainer');
-  const modalCategory = document.getElementById('modalCategory');
-  const modalTitle = document.getElementById('modalTitle');
-  const modalDescription = document.getElementById('modalDescription');
-  const modalClient = document.getElementById('modalClient');
-  const modalYear = document.getElementById('modalYear');
-  const modalYearWrap = document.getElementById('modalYearWrap');
-  const modalDuration = document.getElementById('modalDuration');
-  const modalSoftware = document.getElementById('modalSoftware');
-  const modalSoftwareWrap = document.getElementById('modalSoftwareWrap');
-  const modalCloseBtn = document.getElementById('modalCloseBtn');
+  const videoModal = document.getElementById("videoModal");
+  const videoContainer = document.getElementById("videoContainer");
+  const modalCategory = document.getElementById("modalCategory");
+  const modalTitle = document.getElementById("modalTitle");
+  const modalDescription = document.getElementById("modalDescription");
+  const modalClient = document.getElementById("modalClient");
+  const modalYear = document.getElementById("modalYear");
+  const modalYearWrap = document.getElementById("modalYearWrap");
+  const modalDuration = document.getElementById("modalDuration");
+  const modalSoftware = document.getElementById("modalSoftware");
+  const modalSoftwareWrap = document.getElementById("modalSoftwareWrap");
+  const modalCloseBtn = document.getElementById("modalCloseBtn");
 
   function toYouTubeEmbed(url) {
     try {
       const parsed = new URL(url);
-      const host = parsed.hostname.replace(/^www\./, '');
-      if (host === 'youtube.com') {
-        if (parsed.pathname === '/watch') return `https://www.youtube.com/embed/${parsed.searchParams.get('v')}`;
-        if (parsed.pathname.startsWith('/embed/') || parsed.pathname.startsWith('/shorts/')) {
-          return `https://www.youtube.com/embed/${parsed.pathname.split('/')[2]}`;
+      const host = parsed.hostname.replace(/^www\./, "");
+      if (host === "youtube.com") {
+        if (parsed.pathname === "/watch")
+          return `https://www.youtube.com/embed/${parsed.searchParams.get("v")}`;
+        if (
+          parsed.pathname.startsWith("/embed/") ||
+          parsed.pathname.startsWith("/shorts/")
+        ) {
+          return `https://www.youtube.com/embed/${parsed.pathname.split("/")[2]}`;
         }
         return null;
       }
-      if (host === 'youtu.be') return `https://www.youtube.com/embed/${parsed.pathname.slice(1)}`;
+      if (host === "youtu.be")
+        return `https://www.youtube.com/embed/${parsed.pathname.slice(1)}`;
       return null;
     } catch {
       return null;
@@ -215,12 +274,31 @@ const modalData = videos.map((video: any) => ({
   function toVimeoEmbed(url) {
     try {
       const parsed = new URL(url);
-      const host = parsed.hostname.replace(/^www\./, '');
-      if (host === 'vimeo.com' || host === 'player.vimeo.com') {
-        const id = parsed.pathname.split('/').filter(Boolean)[0];
+      const host = parsed.hostname.replace(/^www\./, "");
+      if (host === "vimeo.com" || host === "player.vimeo.com") {
+        const id = parsed.pathname.split("/").filter(Boolean)[0];
         return id ? `https://player.vimeo.com/video/${id}` : null;
       }
       return null;
+    } catch {
+      return null;
+    }
+  }
+
+  function toTikTokEmbed(url) {
+    try {
+      const parsed = new URL(url);
+      const host = parsed.hostname.replace(/^www\./, "");
+
+      if (host !== "tiktok.com") return null;
+
+      const match = parsed.pathname.match(/\/video\/(\d+)/);
+
+      if (!match) return null;
+
+      const id = match[1];
+
+      return `https://www.tiktok.com/player/v1/${id}`;
     } catch {
       return null;
     }
@@ -237,6 +315,10 @@ const modalData = videos.map((video: any) => ({
     const vimeo = toVimeoEmbed(video.url);
     if (vimeo) {
       return `<iframe class="h-full w-full" src="${vimeo}?autoplay=1" title="${video.title}" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>`;
+    }
+    const tiktok = toTikTokEmbed(video.url);
+    if (tiktok) {
+      return `<iframe class="h-full w-full" src="${tiktok}?autoplay=1&controls=1&description=0&music_info=0" title="${video.title}" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>`;
     }
     if (/\.mp4($|\?)/i.test(video.url)) {
       return `<video class="h-full w-full object-contain" controls autoplay playsinline><source src="${video.url}" type="video/mp4" /></video>`;
@@ -256,42 +338,42 @@ const modalData = videos.map((video: any) => ({
 
     if (video.year) {
       modalYear.textContent = video.year;
-      modalYearWrap.style.display = '';
+      modalYearWrap.style.display = "";
     } else {
-      modalYearWrap.style.display = 'none';
+      modalYearWrap.style.display = "none";
     }
 
     if (video.software) {
       modalSoftware.textContent = video.software;
-      modalSoftwareWrap.style.display = '';
+      modalSoftwareWrap.style.display = "";
     } else {
-      modalSoftwareWrap.style.display = 'none';
+      modalSoftwareWrap.style.display = "none";
     }
 
     videoContainer.innerHTML = buildPlayer(video);
 
-    videoModal.classList.remove('opacity-0', 'pointer-events-none');
-    document.body.classList.add('overflow-hidden');
+    videoModal.classList.remove("opacity-0", "pointer-events-none");
+    document.body.classList.add("overflow-hidden");
   }
 
   function closeVideoModal() {
     if (!videoModal || !videoContainer) return;
-    videoModal.classList.add('opacity-0', 'pointer-events-none');
-    videoContainer.innerHTML = '';
-    document.body.classList.remove('overflow-hidden');
+    videoModal.classList.add("opacity-0", "pointer-events-none");
+    videoContainer.innerHTML = "";
+    document.body.classList.remove("overflow-hidden");
   }
 
   cards.forEach((card) => {
-    card.addEventListener('click', () => openVideoModal(card.dataset.videoId));
+    card.addEventListener("click", () => openVideoModal(card.dataset.videoId));
   });
 
-  modalCloseBtn?.addEventListener('click', closeVideoModal);
+  modalCloseBtn?.addEventListener("click", closeVideoModal);
 
-  window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeVideoModal();
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeVideoModal();
   });
 
-  videoModal?.addEventListener('click', (e) => {
+  videoModal?.addEventListener("click", (e) => {
     if (e.target === videoModal) closeVideoModal();
   });
 </script>
