@@ -14,10 +14,10 @@ import ServicesSection from '../components/ServicesSection.astro';
 
 const videos = (await getCollection('videos')).sort((a, b) => Number(b.data.featured) - Number(a.data.featured));
 
-const SITE_URL = 'https://gustavstudios.com';
-const seoTitle = 'GUSTAV STUDIOS | Producción y Edición de Videos';
+const SITE_URL = 'https://studiosgustav.com';
+const seoTitle = 'GUSTAV STUDIOS | Producción, edición y postproducción audiovisual en Lima';
 const seoDescription =
-  'Portafolio de Gustav, editor y productor audiovisual en Lima, Perú. Edición de video, reels, podcast y contenido para redes sociales.';
+  'GUSTAV STUDIOS crea contenido audiovisual para marcas, negocios y creadores: reels, podcast, videos corporativos, edición de video y producción audiovisual en Lima, Perú.';
 const ogImage = `${SITE_URL}/images/logo.webp`;
 
 const structuredData = {
@@ -30,18 +30,20 @@ const structuredData = {
   image: ogImage,
   telephone: '+51943604589',
   email: 'studiosgustav@gmail.com',
+  areaServed: 'PE',
   address: {
     '@type': 'PostalAddress',
     addressLocality: 'Lima',
     addressCountry: 'PE',
   },
-  sameAs: ['https://instagram.com', 'https://tiktok.com', 'https://youtube.com'],
+  sameAs: ['https://www.instagram.com/gustav_studios', 'https://www.tiktok.com/@elgustav_7'],
   knowsAbout: [
-    'Edición de video',
     'Producción audiovisual',
+    'Edición de video',
     'Videos para redes sociales',
     'Edición de podcast',
-    'Color grading',
+    'Postproducción y color grading',
+    'Contenido para marcas y negocios',
   ],
 };
 ---
@@ -52,8 +54,9 @@ const structuredData = {
     <meta name='viewport' content='width=device-width, initial-scale=1' />
     <title>{seoTitle}</title>
     <meta name='description' content={seoDescription} />
-    <meta name='robots' content='index, follow' />
+    <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
     <meta name='author' content='GUSTAV STUDIOS' />
+    <meta name='keywords' content='producción audiovisual, edición de video, reels, podcast, contenido para redes sociales, Lima Perú, GUSTAV STUDIOS' />
     <meta name='generator' content={Astro.generator} />
     <link rel='canonical' href={`${SITE_URL}/`} />
 

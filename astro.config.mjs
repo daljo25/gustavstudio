@@ -5,7 +5,7 @@ import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-  site: 'https://gustavstudios.com',
+  site: 'https://studiosgustav.com',
   integrations: [
     icon({
       include: {
