@@ -5,7 +5,7 @@ const videos = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/videos' }),
   schema: z.object({
     title: z.string(),
-    category: z.enum(['reels', 'shorts', 'podcast', 'social', 'eventos', 'otros']),
+    category: z.enum(['reels', 'shorts', 'podcast', 'social', 'eventos','youtube', 'otros']),
     client: z.string(),
     duration: z.string(),
     image: z.string(),

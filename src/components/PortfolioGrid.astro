@@ -1,32 +1,40 @@
 ---
 import { Icon } from 'astro-icon/components';
 
-const { videos } = Astro.props;
-const categoryLabels = {
+const { videos = [] } = Astro.props as { videos?: Array<Record<string, any>> };
+
+const normalizeCategory = (category: unknown): string => {
+  const value = typeof category === 'string' ? category : 'otros';
+  return value in categoryLabels ? value : 'otros';
+};
+
+const categoryLabels: Record<string, string> = {
   all: 'Todos',
   reels: 'Reels',
   shorts: 'Shorts',
   podcast: 'Podcast',
   social: 'Redes sociales',
   eventos: 'Eventos',
+  youtube: 'YouTube',
   otros: 'Otros',
 };
 
-const categoryLongLabels = {
+const categoryLongLabels: Record<string, string> = {
   reels: 'REELS INSTAGRAM',
   shorts: 'SHORTS / TIKTOK',
   podcast: 'PODCAST',
   social: 'REDES SOCIALES',
   eventos: 'EVENTOS',
+  youtube: 'YOUTUBE',
   otros: 'OTROS',
 };
 
-const categories = ['all', ...new Set(videos.map((video) => video.data.category))];
+const categories = ['all', ...new Set(videos.map((video: any) => normalizeCategory(video.data.category)))];
 
-const modalData = videos.map((video) => ({
+const modalData = videos.map((video: any) => ({
   id: video.id,
   title: video.data.title,
-  category: categoryLongLabels[video.data.category],
+  category: categoryLongLabels[normalizeCategory(video.data.category)] ?? video.data.category,
   description: video.data.description,
   image: video.data.image,
   client: video.data.client,
@@ -70,7 +78,7 @@ const modalData = videos.map((video) => ({
       >
         <div class='relative aspect-video overflow-hidden bg-neutral-950'>
           <img src={video.data.image} alt={video.data.title} class='h-full w-full object-cover transition duration-500 group-hover:scale-105' />
-          <div class='absolute inset-0 bg-gradient-to-t from-brand-black via-transparent to-transparent'></div>
+          <div class='absolute inset-0 bg-linear-to-t from-brand-black via-transparent to-transparent'></div>
           <div class='absolute left-3 top-3 rounded-md border border-neutral-700 bg-black/70 px-2 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-brand-orange'>
             {categoryLabels[video.data.category]}
           </div>
@@ -78,7 +86,7 @@ const modalData = videos.map((video) => ({
             {video.data.duration}
           </div>
           <div class='absolute inset-0 flex items-center justify-center opacity-0 transition duration-200 group-hover:opacity-100'>
-            <div class='flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-r from-brand-red to-brand-orange text-white shadow-[0_0_35px_rgba(255,92,0,0.45)]'>
+            <div class='flex h-14 w-14 items-center justify-center rounded-full bg-linear-to-r from-brand-red to-brand-orange text-white shadow-[0_0_35px_rgba(255,92,0,0.45)]'>
               <Icon name='lucide:play' class='ml-0.5 h-6 w-6 fill-current' />
             </div>
           </div>
@@ -103,7 +111,7 @@ const modalData = videos.map((video) => ({
 <!-- Fullscreen video modal player -->
 <div
   id='videoModal'
-  class='pointer-events-none fixed inset-0 z-[90] flex items-center justify-center bg-black/95 p-4 opacity-0 backdrop-blur-2xl transition-opacity duration-300 sm:p-6'
+  class='pointer-events-none fixed inset-0 z-90 flex items-center justify-center bg-black/95 p-4 opacity-0 backdrop-blur-2xl transition-opacity duration-300 sm:p-6'
 >
   <div
     class='relative flex max-h-[calc(100dvh-2rem)] w-full max-w-5xl flex-col overflow-y-auto rounded-2xl border border-neutral-800 bg-brand-card shadow-2xl sm:max-h-[calc(100dvh-3rem)]'
